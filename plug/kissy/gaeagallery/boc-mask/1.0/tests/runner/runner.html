@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Get Ready for Jasmine Tests</title>
+    <!-- jasmine -->
+    <link rel="stylesheet" href="http://22.11.143.109/kissy/jasmine/tools/jasmine.css">
+    <script src="http://22.11.143.109/kissy/jasmine/tools/jasmine.js"></script>
+    <script src="http://22.11.143.109/kissy/jasmine/tools/jasmine-html.js"></script>
+    <script src="http://22.11.143.109/kissy/jasmine/tools/console-runner.js"></script>
+    <!-- <script src="../../../../jasmine/tools/event-simulate.js"></script> -->
+    <!-- <script src="../../../../jasmine/tools/seed.js"></script> -->
+    <!-- KISSY -->
+    <script src="http://22.11.143.109/kissy/jquery/jquery-1.8.1.min.js"></script>
+    <script src="http://22.11.143.109/kissy/seed-min.js"></script>
+    <script src="http://22.11.143.109/kissy/bui/adapterCo-min.js"></script>
+    <!-- jasmine-kissy mock interface -->
+    <script src="http://22.11.143.109/kissy/gallery/velocity/1.1/index-min.js"></script>
+    <script src="http://22.11.143.109/kissy/gallery/velocity/1.1/parse-min.js"></script>
+    <script src="http://22.11.143.109/kissy/gallery/jasmine-kissy/2.0/index-min.js"></script>
+    <script src="http://22.11.143.109/kissy/gallery/jasmine-kissy/2.0/ajax-base-min.js"></script>
+</head>
+<body>
+<!-- 引入包配置 -->
+<!-- <script src="../../src/welData.js"></script>
+<script src="../specs/spec_for_Wd.js"></script> -->
+<script>
+
+    /**
+     *调用入口引入测试案例集合,激活kissy下的describe语句
+     */
+    var console_reporter = new jasmine.ConsoleReporter();
+
+    (function () {
+        var S = KISSY;
+        //配置源码目录
+        S.config({
+            'packages': [
+                //define an module which is named with ...
+                {
+                    name :'gaeagallery/boc-datepicker/1.0',
+                    //开启后调用的是未压缩的文件
+                    debug:true,
+                    tag: '20150129',
+                    base : '../../',
+                    combine:false,
+                    ignorePackageNameInUri: true
+                }
+
+            ]
+        });
+
+        S.config({
+            packages: [
+                {
+                    name: "tests",
+                    debug: true,
+                    path: '../',
+                    ignorePackageNameInUri: true
+                }
+            ]
+        });
+
+
+        /* var jasmineEnv = jasmine.getEnv();
+         jasmineEnv.updateInterval = 1000;
+
+         var htmlReporter = new jasmine.HtmlReporter();
+         jasmineEnv.addReporter(htmlReporter); */
+
+        jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
+        jasmine.getEnv().addReporter(console_reporter);
+
+        S.use('gallery/jasmine-kissy/2.0/', function (S, HtmlMock) {
+            S.htmlMock = new HtmlMock();
+            /*runner.js测试入口模块加载所有test目录下的测试模块 */
+            S.use('tests/runner/runner', function () {
+
+                jasmine.getEnv().execute();
+                //jasmineEnv.execute();
+            })
+        })
+    })()
+
+
+</script>
+</body>
+</html>

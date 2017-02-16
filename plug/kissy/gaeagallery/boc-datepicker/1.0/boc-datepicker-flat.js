@@ -1,0 +1,1 @@
+KISSY.add("gaeagallery/boc-datepicker/1.0/boc-datepicker-flat",function(c,d){var a=new d();function b(){if(typeof this.init!=="function"){b.prototype.renderDatepicker=a.renderDatepicker;b.prototype.init=a.init}}return b},{requires:["./boc-dp-entity","./css/boc-datepicker_flat.css"]});

@@ -1,0 +1,1 @@
+KISSY.add("gaeagallery/xss/1.0/xss",function(a,b){function c(){"function"!=typeof this.init&&(c.prototype.init=function(){return d})}var d=b;return c},{requires:["./lib/xss"]});

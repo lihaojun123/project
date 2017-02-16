@@ -1,0 +1,97 @@
+
+
+.x-datepicker-arrow .icon-caret-left {
+    vertical-align: text-bottom;
+    background-image: url('../img/left.png') !important;
+    background-position: 0px 2px;
+
+    width: 27px;
+    height: 25px;
+    display: inline-block;
+}
+
+
+.x-datepicker-arrow .icon-caret-right {
+    vertical-align: text-bottom;
+    background-image: url('../img/right.png') !important;
+    background-position: 0px 2px;
+
+    width: 27px;
+    height: 25px;
+    display: inline-block;
+}
+.month-text-container {
+    color: #b6002a;
+    font-size: 14px;
+    font-family: "Tahoma","ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
+}
+.x-datepicker-inner thead {
+    color: #48a8b8;
+}
+
+.bui-calendar .bui-calendar-header {
+    padding: 0 4px;
+    position: relative;
+    margin-top: 10px;
+}
+.bui-calendar .bui-calendar-header  .x-datepicker-month:hover {
+    background: none;
+}
+.bui-calendar .bui-calendar-header .month-text-container:hover {
+    background-color: #eee;
+}
+
+.bui-calendar .bui-calendar-header .x-datepicker-month {
+    border-bottom: 1px #ccc solid;
+    height: 39px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.bui-calendar .bui-calendar-panel td.x-datepicker-selected a {
+    color: #fff !important;
+    background-color: #b6002a !important;
+    border-radius: 20px;
+    -ms-border-radius:20px;//IE
+}
+
+.bui-calendar .bui-calendar-panel td.x-datepicker-today a {
+    color: #000;
+    background-color: #ffdb99;
+    border-radius: 20px;
+    -ms-border-radius:20px;//IE
+}
+.bui-calendar .bui-calendar-panel td.x-datepicker-date a:hover, .bui-calendar .bui-calendar-panel td.x-datepicker-date a:focus {
+    background-color: #eee;
+    text-decoration: none;
+    border-radius: 20px;
+    -ms-border-radius:20px;//IE
+}
+
+.bui-monthpicker .x-monthpicker-footer {
+    padding: 16px 0 14px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+
+.bui-monthpicker .bui-calendar-month-panel .x-monthpicker-item-selected a, .bui-monthpicker .bui-calendar-year-panel .x-monthpicker-item-selected a {
+    color: #fff;
+    background-color: #b6002a;
+}
+
+.bui-monthpicker .bui-calendar-month-panel .x-monthpicker-item-selected a:hover, .bui-monthpicker .bui-calendar-year-panel .x-monthpicker-item-selected a:hover {
+    background-color: #b6002a;
+    color:#fff;
+}
+
+.bui-monthpicker .bui-calendar-month-panel li a:hover, .bui-monthpicker .bui-calendar-year-panel li a:hover {
+    background-color: #eee;
+    text-decoration: none;
+}
+
+.x-monthpicker-footer .button-primary {
+    color: #fff;
+    background-color: #b6002a;
+    border-color: #e85078;
+}
