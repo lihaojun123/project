@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/vue.min.js"></script>
+</head>
+<body>
+   <div id="box">
+       <input type="text" @keyup.w="submit($event)"/>
+   </div>
+   <script>
+        var ve=new Vue({
+            el:"#box",
+            data:{
+
+            },
+            methods:{
+                submit(ev){
+                    alert('');
+                   
+                    
+                }
+            }
+        });
+   </script>   
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/vue.min.js"></script>
+</head>
+<body>
+   <div id="box">
+         {{msg}}
+         {{msg1}}<br>
+         {{msg2}}
+         <ul><li v-for="(k,v) in msg3"> {{v}}</li></ul>
+   </div>
+   <script>
+        var ve=new Vue({
+            el:"#box",
+            data:{
+               msg:'dsfasd',
+               msg1:true,
+               msg2:['df','df','dfs'],
+               msg3:{ds:'dsfsd',fd:'dfd'}
+
+            },
+            methods:{
+                
+            }
+        });
+   </script>   
+</body>
+</html>

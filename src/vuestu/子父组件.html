@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/vue.min.js"></script>
+    
+</head>
+<body>
+  <div id="box">
+       <aaa>
+           
+       </aaa>
+  </div>
+  <template id="demo">
+        <h1 @ev="get">{{msg}}</h1>
+        <bbb></bbb>
+  </template>
+   <script>
+        var ve=new Vue({
+            el:"#box",
+            data:{
+               a:1
+
+            },
+            methods:{
+                
+            },
+            components:{
+                 aaa:{
+                     template:'#demo',
+                     data(){
+                         return{
+                             msg:'我是父组件'
+                         }
+                     },
+                     methods:{
+                          get(a){
+                               this.msg=a;
+                          }
+                     },
+                     components:{
+                          bbb:{
+                              data(){
+                                return{
+                                    msg1:"我是子组件数据"
+                                 }
+                               },
+                               methods:{
+                                   send(){
+                                       this.$emit('ev',this.msg1);
+                                   }
+                               },
+                              template:'<h1 @click="send">我是子组件</h1>'   
+                          }
+                     }
+                 }
+            }
+        });
+        
+   </script>   
+</body>
+</html>

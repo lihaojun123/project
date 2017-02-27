@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/vue.min.js"></script>
+</head>
+<body>
+   <div id="box">
+         {{a}}
+   </div>
+   <script>
+        var ve=new Vue({
+            el:"#box",
+            data:{
+               a:1
+
+            },
+            show:function(){//自定义属性
+                alert('');
+            },
+            methods:{
+                
+            }
+        });
+        //ve.$el.style.backgroundColor="red";
+        //console.log(ve.$data.a);
+        //ve.$options.show();
+        ve.$log();
+   </script>   
+</body>
+</html>

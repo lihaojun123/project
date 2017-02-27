@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/vue.min.js"></script>
+    
+</head>
+<body>
+   
+    <div id="box">
+         <aaa>
+               <ul slot="b">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+               </ul>
+
+               <ol slot="a">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+               </ol>  
+         </aaa> 
+    </div>
+    <template id="aaa">
+        <div>
+            <h1>我是组件</h1>
+            <slot name="a">sfsdsdfd</slot>
+            <slot name="b">sfsdsdfd</slot>
+            <h2>weweewewerr</h2>
+        </div>
+    </template>
+   <script>
+        var ve=new Vue({
+            el:"#box",
+            data:{
+               a:1
+
+            },
+            methods:{
+                
+            },
+            components:{
+                 aaa:{
+                    template:"#aaa"
+                 }
+                
+            }
+        });
+        
+   </script>   
+</body>
+</html>

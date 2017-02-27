@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/vue.min.js"></script>
+    
+</head>
+<body>
+   <div id="box">
+         <aaa></aaa>
+   </div>
+   <script>
+        var Aaa=Vue.extend({
+              template:"<h1>{{msg}}</h1>",
+              data(){
+                  return{
+                      msg:"我是数据组件"
+                  }
+              }
+        });
+          //Vue.component('aaa',Aaa);
+        var ve=new Vue({
+            el:"#box",
+            data:{
+               a:1
+
+            },
+            methods:{
+                
+            },
+            components:{
+                 aaa:Aaa
+            }
+        });
+        
+   </script>   
+</body>
+</html>
