@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/dist/vue.min.js"></script>
+    <!--<script src="../../plug/vue/vue.min.js"></script>-->
+</head>
+<body>
+   <div id="box">
+        {{msg | Todo('string','obj')}}
+   </div>
+   <script>
+        Vue.filter('Todo',function(n,a,b){
+            console.log(a);
+            if(n<222){
+                  return 666;
+            }else{
+                 return 888;
+            }
+        });
+        var ve=new Vue({
+            el:"#box",
+            data:{
+              msg:221
+
+            },
+            methods:{
+                
+            }
+        });
+   </script>   
+</body>
+</html>

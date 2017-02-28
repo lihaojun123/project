@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/dist/vue.min.js"></script>
+    <!--<script src="../../plug/vue/vue.min.js"></script>-->
+</head>
+<body>
+   <div id="box">
+        <ul>
+            <li v-for="(val,index) in arr" :data-id="index" :value="val">{{val}} {{index}}</li>
+        </ul>
+        <button @click="add">添加</button>
+   </div>
+   <script>
+        var ve=new Vue({
+            el:"#box",
+            data:{
+              arr:['dsf','sfd','dsfsd'] 
+
+            },
+            methods:{
+                add:function(){
+                     this.arr.push('fasdf');
+                }
+            }
+        });
+   </script>   
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/dist/vue.min.js"></script>
+    <!--<script src="../../plug/vue/vue.min.js"></script>-->
+    <style>
+       #box{
+           font-size:36px;
+           background:red;
+       }
+    </style>
+</head>
+<body>
+   <div id="box">
+         <aaa></aaa>   
+   </div>
+   <template id="zujian">
+       <div >
+            <h2>sdsd</h2>
+            <p>sfsdfs</p>
+       </div>
+   </template>
+   <script>
+        var zujian={
+              template:"#zujian"
+         }
+        Vue.component('aaa',zujian);
+        var ve=new Vue({
+            el:"#box",
+            data:{
+              msg:"视图渲染"
+
+            },
+            methods:{
+               
+            },
+        });
+        
+   </script>   
+</body>
+</html>

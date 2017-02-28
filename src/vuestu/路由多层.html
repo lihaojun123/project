@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../plug/vue/vue.min.js"></script>
+    <script src="../../plug/vue/vue-router.min.js"></script>
+</head>
+<body>
+   <div id="box">
+       <ul>
+           <li><a v-link="{path:'/home'}">主页</a></li>
+           <li><a v-link="{path:'/new'}">新闻</a></li>
+       </ul>
+       <router-view></routere-view>
+   </div>
+  <template id="home">
+      <div>
+        <ul>
+           <li><a v-link="{path:'/home/login'}">登录</a></li>
+           <li><a v-link="{path:'/home/res}">注册</a></li>
+        </ul> 
+        <router-view></routere-view> 
+      </div>
+  </template>
+  <template id="new">
+      <div>
+        <ul>
+           <li><a v-link="{}">详情</a></li>
+           <li><a v-link="{}">详情1</a></li>
+        </ul>  
+      </div>
+  </template>
+   <script>
+           var Vue=Vue.extend();
+           var Home=Vue.extend({
+                template:'#home'
+           });
+           var New=Vue.extend({
+                  template:'#new'
+           });
+           var router=new VueRouter();
+               router.map({
+                   'home':{
+                        component:Home,
+                        subRoutes:{
+                            'login':{
+                                  component:{
+                                      template:"<h1>我是登录信息</h1>"
+                                  }
+                            },
+                            'res':{
+                                component:{
+                                      template:"<h1>我是注册信息</h1>"
+                                  }
+                            }
+                        }
+                   },
+                   'new':{
+                        component:New
+                   }
+               })
+           router.start(Vue,'#box');
+   </script>   
+</body>
+</html>
