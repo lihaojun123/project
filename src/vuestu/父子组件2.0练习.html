@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<script src="../../plug/vue/dist/vue.min.js"></script>-->
+    <script src="../../plug/vue/vue.min.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+   <div id="box">
+       <aaa>
+       </aaa>
+       
+   </div>
+
+   <script>
+        var ve=new Vue({
+            el:"#box",
+            data:{
+              msg:"视图渲染"
+            },
+            methods:{
+               
+            },
+            components:{
+                aaa:{
+                    template:'<h1>我是父组件模板</h1><bbb :msgdd="msg"></bbb>',
+                    data(){
+                        return{
+                             msg:"我是父组件数据"
+                        }
+                    },
+                    components:{
+                        bbb:{
+                             template:"<h1>我是子组件模板</h1>{{msgdd}}",
+                             props:['msgdd'],
+                             data(){
+                                  return{
+                                      msg2:"我是子组件数据"
+                                  }
+                             }
+                        
+                        }
+                    }
+                }
+            }
+        });    
+   </script>   
+</body>
+</html>
