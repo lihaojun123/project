@@ -9,7 +9,7 @@
 <body>
    <div id="box">
         <ul>
-            <li v-for="(val,index) in arr" :data-id="index" :value="val">{{val}} {{index}}</li>
+            <li v-for="item in arr">{{item.title}}</li>
         </ul>
         <button @click="add">添加</button>
    </div>
@@ -17,7 +17,7 @@
         var ve=new Vue({
             el:"#box",
             data:{
-              arr:['dsf','sfd','dsfsd'] 
+              arr:[{title:'asdfsdsa',a:''},{title:'asdfsdsa',a:''}] 
 
             },
             methods:{
