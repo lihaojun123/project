@@ -1,0 +1,13 @@
+body {
+  background: #f8f8f8;
+}
+.gotop {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: url(../images/icon_06.png) no-repeat center center;
+  background-size: 2.25rem 2.25rem;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 0.475rem;
+  z-index: 99;
+}

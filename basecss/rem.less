@@ -1,0 +1,29 @@
+//
+// Rem
+// --------------------------------------------------
+// Vertical screen
+//375屏幕为 20px，以此为基础计算出每一种宽度的字体大小
+//375以下缩小，375以上等比放大
+//最小320，最大480，超过480，js做居中显示
+@baseWidth: 375px;
+@baseFont: 20px;
+html{
+   font-size: @baseFont; 
+}
+body {
+  font-size: 16px;
+}
+
+@bps: 320px,360px,375px,400px, 414px, 435px,480px; //具有代表性的iPhone和安卓屏幕宽度
+
+.loop(@i: 1) when (@i <= length(@bps)) {  //注意less数组是从1开始的
+  @bp: extract(@bps, @i);
+  @font: @bp/@baseWidth*@baseFont;  //根据屏幕尺寸计算font-size的值
+  @media only screen and (min-width: @bp){
+    html {
+      font-size: @font !important;
+    }
+  }
+  .loop((@i + 1));
+};
+.loop;

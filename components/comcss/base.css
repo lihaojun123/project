@@ -1,0 +1,59 @@
+/*reset*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q,samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  font-family: 'microsoft yahei';
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+th,td{
+  font-weight:400;
+  font-style:normal;
+  display:table-cell
+}
+img{
+  border:0 none;
+  font-size:10px
+}
+textarea{
+  resize:none;
+  overflow:auto
+}
+input {padding: 0}
+input:focus,textarea:focus{
+  outline:0 none
+}
+input,button,textarea,select,option{
+  font-family:inherit;
+  font-size:inherit;
+  font-style:inherit;
+  font-weight:inherit
+}
+ul,ol,li{
+  list-style:none
+}
+table { border-collapse: collapse; border-spacing: 0; }
+a{ text-decoration: none; color:#333}
+a:hover{text-decoration:none;} 
+a:focus{ outline: none; }
+a {outline:none; hide-focus: expression(this.hideFocus=true);}
+*html{ background-image: url(about:blank); background-attachment: fixed;}
