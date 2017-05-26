@@ -1,1 +1,0 @@
-KISSY.add("gaeagallery/boc-modulelist/1.0/boc-modulelist",function(a,b){function c(){"function"!=typeof this.init&&(c.prototype.renderModuleList=d.renderModuleList,c.prototype.init=d.init,c.prototype.btnCli=d.btnCli)}var d=new b;return c},{requires:["./boc-ml-entity","./css/boc-moduleList.css"]});

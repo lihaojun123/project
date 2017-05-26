@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+    />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>aui模板</title>
+    <link rel="stylesheet" type="text/css" href="../../plugs/aui/css/aui.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+    <header class="aui-bar aui-bar-nav">
+        <a class="aui-pull-left aui-btn">
+            <span class="aui-iconfont aui-icon-left"></span>
+        </a>
+        <div class="aui-title">Title</div>
+    </header>
+    <div class="aui-content">
+        <div class="aui-tab" id="tab">
+            <div class="aui-tab-item aui-active">Item1</div>
+            <div class="aui-tab-item">tem2</div>
+            <div class="aui-tab-item">Item3</div>
+            <div class="aui-tab-item">Item4</div>
+        </div>
+        <div class="tab-content tab-content1">1</div>
+        <div class="tab-content tab-content2">2</div>
+        <div class="tab-content tab-content3">3</div>
+        <div class="tab-content tab-content4">4</div>
+    </div>
+    <footer class="aui-bar aui-bar-tab" id="footer">
+        <div class="aui-bar-tab-item aui-active" tapmode>
+            <i class="aui-iconfont aui-icon-home"></i>
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <i class="aui-iconfont aui-icon-star"></i>
+            <div class="aui-bar-tab-label">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <div class="aui-badge">99</div>
+            <i class="aui-iconfont aui-icon-cart"></i>
+            <div class="aui-bar-tab-label">购物车</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <div class="aui-dot"></div>
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">我的</div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="../../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../plugs/aui/script/aui-tab.js"></script>
+    <script>
+        $(".tab-content1").show();
+        var tab = new auiTab({
+            element: document.getElementById("tab"),
+            index: 1,
+            repeatClick: false
+        }, function (ret) {
+               $(".tab-content").hide();
+               $(".tab-content"+ret.index).show();
+        });
+    </script>
+</body>
+
+</html>
