@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<!-- 加载Traceur编译器 -->
+<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+
+<body>        
+        <script type="module">
+        // var year=[1,2,3,4,5];
+        //    for(let i of year)
+        //         if (i>4) {
+        //             console.log(i);
+        //         }
+
+          function es6(){
+              let x=1;
+              let y=2;
+              return {
+                  x,
+                  y
+              }
+          }  
+        console.log(es6());   
+        </script>  
+</body>
+</html>
