@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+         html,body{
+             height:100%;
+         }
+		.map{
+            width:100%;
+            height:100%;
+        }
+        .map-content{
+            width: 100%;
+            height:100%;
+        }
+	</style>
+</head>
+
+<body>
+    
+      <div class="map">
+            <div class="map-content" id="allmap"></div>
+        </div>  
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=dQckszfTDT3UmFRD7zeXuuMglmR0rbbg"></script>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("浏览器不支持地理定位。");
+            }
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("定位失败,用户拒绝请求地理定位");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("定位失败,位置信息是不可用");
+                    break;
+                case error.TIMEOUT:
+                    alert("定位失败,请求获取用户位置超时");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("定位失败,定位系统失效");
+                    break;
+            }
+        }
+
+
+        function showPosition(position) {
+            var lat = position.coords.latitude; //纬度 
+            var lag = position.coords.longitude; //经度 
+            alert('纬度:' + lat + ',经度:' + lag);
+            var map = new BMap.Map("allmap");
+       
+            var pointA = new BMap.Point(121.511387, 32.100249);  // 创建点坐标A--大渡口区
+            var pointB = new BMap.Point(120.511387, 30.100249);  // 创建点坐标B--江北区
+            map.centerAndZoom(pointB, 15);  //初始化地图,设置城市和地图级别。
+            alert('距离是：' + (map.getDistance(pointA, pointB)).toFixed(2) + ' 米。');  //获取两点距离,保留小数点后两位
+            var polyline = new BMap.Polyline([pointA, pointB], { strokeColor: "red", strokeWeight: 6, strokeOpacity: 0.5 });  //定义折线
+            map.addOverlay(polyline);     //添加折线到地图上
+            }
+
+        getLocation();
+
+        
+    </script>
+</body>
+
+</html>
