@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>外观模式</title>
 </head>
 <body>
-    
+    <script>
+       function addEvent(dom,type,fn){
+           if(dom.addEventListenner){
+               dom.addEventListenner(type,fn,false)
+           }else if(dom.attachEvent){
+               dom.attachEvent('on'+type,fn);
+           } else{
+               dom['on'+type]=fn;
+           }
+       }
+    </script>
 </body>
 </html>
