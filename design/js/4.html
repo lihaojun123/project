@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第四章</title>
+</head>
+
+<body>
+    <script>
+        /*
+        ** @创建java类
+        **@param 插入的content内容，要插入的contenter Dom元素
+        */
+        // function Java(content, contenter) {
+        //     this.content = content;
+        //     (function (content) {
+        //         var div = document.createElement('div');
+        //         div.innerHTML = content;
+        //         div.style.color = 'yellow';
+        //         document.getElementById(contenter).appendChild(div);
+        //     })(content)
+        // }
+        // function Php(content, contenter) {
+        //     this.content = content;
+        //     (function (content) {
+        //         var div = document.createElement('div');
+        //         div.innerHTML = content;
+        //         div.style.color = 'green';
+        //         div.style.background = 'sliver';
+        //         document.getElementById(contenter).appendChild(div);
+        //     })(content)
+        // }
+        // function createFactory(type,content){
+        //     switch(type){
+        //         case 'Php':
+        //              return new Php(content);
+        //         case 'java':
+        //              return new Java(content);     
+        //     }
+        // }
+
+
+        /*
+        ** @创建安全的工厂方法
+        */
+        var Factory = function (type, content) {
+            if (this instanceof Factory) {
+                var s = new this[type](content);
+                return s;
+            } else {
+                return new Factory(type, content);
+            }
+        }
+        //工厂原型中设置创建所有类型数据对象的基类
+        Factory.prototype = {
+            Java: function (content) {
+                this.content = content;
+                (function (content) {
+                    var div = document.createElement('div');
+                    div.innerHTML = content;
+                    div.style.color = 'yellow';
+                    document.getElementById(contenter).appendChild(div);
+                })(content)
+            },
+            php: function (content) {
+                this.content = content;
+                (function (content) {
+                    var div = document.createElement('div');
+                    div.innerHTML = content;
+                    div.style.color = 'green';
+                    div.style.background = 'sliver';
+                    document.getElementById(contenter).appendChild(div);
+                })(content)
+            }
+        }
+    </script>
+</body>
+
+</html>

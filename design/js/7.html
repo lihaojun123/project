@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型模式</title>
+</head>
+
+<body>
+    <script>
+        /**
+        ** 创建焦点图类
+        ***/
+        // var LoopImage = function (imgArr, container) {
+        //     this.imageArray = imgArr;//轮播图片数组
+        //     this.container = container;//轮播图片容器
+        //     this.createImage = function () { };//创建轮播图片
+        //     this.changeImage = function () { };//切换下一张图片
+        // }
+        // //上下滑动切换类
+        // var slideLoopImg = function (imgArr, container) {
+        //     //构造函数继承图片轮播类
+        //     LoopImage.call(this, imgArr, container);
+        //     //重写继承的切换下一张图片
+        //     this.changeImage = function () {
+        //         //
+        //         console.log('重写继承的切换下一张图片');
+        //     }
+        // }
+
+        // //渐隐切换类
+        // var FadeLoopImg = function (imgArr, container, arrow) {
+        //     //构造函数继承图片轮播类
+        //     LoopImage.call(this, imgArr, container);
+        //     //切换箭头私有变量
+        //     this.arrow = arrow;
+        //     //重写继承的切换下一张图片
+        //     this.changeImage = function () {
+        //         //
+        //         console.log('重写继承的切换下一张图片');
+        //     }
+        // }
+
+        /**
+        **优化后的版本
+        */
+        // var LoopImage = function (imgArr, container) {
+        //     this.imageArray = imgArr;//轮播图片数组
+        //     this.container = container;//轮播图片容器
+        // }
+        // LoopImage.prototype = {
+        //     createImage: function () { },//创建轮播图片
+        //     changeImage: function () { }//切换下一张图片  
+        // }
+        // //上下滑动切换类
+        // var slideLoopImg = function (imgArr, container) {
+        //     //构造函数继承图片轮播类
+        //     LoopImage.call(this, imgArr, container);
+            
+        // }
+        //  slideLoopImg.prototype=new LoopImage();
+        //  //重写继承的切换下一张图片
+        //  slideLoopImg.prototype.changeImage = function () {
+        //         //
+        //     console.log('重写继承的切换下一张图片');
+        //  }
+
+        /**
+        **@原型继承
+        ***/
+        function prototypeExtend(){
+            //缓存类，为实例化返回对象临时创建
+            var F=function(){};
+            //模板对象参数序列
+            var args=arguments,
+                 i=0,
+                 len=args.length;
+            for(;i<len;i++){
+                //遍历每个模板对象中的属性
+                for(var j in args[i]){
+                    //将这些对象复制到缓存类原型中
+                    F.prototype[j]=args[i][j];
+                }
+            }
+            return new F();
+        }
+    </script>
+</body>
+
+</html>

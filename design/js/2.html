@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第二章</title>
+</head>
+<body>
+
+      <script>
+          //面向对象编程
+
+        //   var Book=function(id,bookName,price){
+        //          this.id=id;
+        //          this.bookName=bookName;
+        //          this.price=price;
+        //   }
+        //   //向对象中添加方法
+        //    Book.prototype.disPlay=function(){
+        //        //展示这本书的功能
+        //    }
+        //    //或者
+        //    Book.prototype={
+        //        disPlay:function(){
+        //            //展示这本书
+        //        }
+        //    }
+
+           //私有属性、私有方法、特权方法、对象公有属性和对象公有方法、构造器
+
+            // var Book=function(id,bookName,price){
+            //     //私有属性
+            //     var num=1;
+            //     //私有方法
+            //     function checkId(){
+
+            //     };
+            //     //特权方法
+            //     this.getName=function(){
+
+            //     };
+            //     this.getPrice=function(){};
+            //     this.setName=function(){};
+            //     this.setPrice=function(){};
+
+            //     //对象公有属性
+            //     this.id=id;
+            //     //对象公有方法
+            //     this.copy=function(){};
+            //     //类的构造器
+            //     this.setName(name);
+            //     this.setPrice(price);
+            // }
+            // //类的静态公有属性（对象不能访问）
+            // Book.isChinese=true;
+            // //类静态公有方法
+            // Book.resetTime=function(){
+
+            // }
+            // Book.prototype={
+            //     //公有属性
+            //     isJsBook:false,
+            //     //公有方法
+            //     disPlay:function(){}
+            // }
+
+            /****
+                将静态变量通过闭包来实现
+            *****/
+
+            //利用闭包实现
+            // var Book=(function(){
+            //     //静态私有变量
+            //      var bookNum=0;
+            //          function checkBook(name){};
+            //     //返回构造函数
+            //       return function(newId,newName,newPrice){
+            //           //私有变量
+            //           var name,price;
+            //           //私有方法
+            //           function checkID(id){
+            //           }
+            //           //特权方法
+            //           this.getName=function(){};
+            //           this.setName=function(){};
+            //           //公有属性
+            //           this.id=newId;
+            //           //构造器
+            //           this.setName(newName);
+            //       }
+            //       _book.prototype={
+            //           //静态公有属性
+            //           isJsBook:false,
+            //           disPlay:function(){
+            //               console.log(1);
+            //           }
+            //       }
+            //       return _book;
+            // })();
+            // var b=new Book();
+            // console.log(b.isJsBook);
+
+            /****
+               创建对象的安全模式
+            *****/
+            // var Book=function(title,time,type){
+            //     if(this instanceof Book){
+            //         this.title=title;
+            //         this.time=time;
+            //         this.type=type;
+            //     }else{
+            //         return new Book(title,time,type);
+            //     }
+                
+            // }
+            // var b=Book('xxx','2015','js');
+            // console.log(b.title);
+
+            /**
+            *@类式继承
+            */
+            //声明父类
+            // function superClass(){
+            //     this.superValue=['1','2','3'];
+            // }
+            // superClass.prototype.getSuperValue=function(){
+            //     return  this.superValue;
+            // }
+            // //声明子类
+            // function subClass(){
+            //     this.subValue=false;
+            // }
+            // subClass.prototype=new superClass();
+            // //为子类添加公有方法
+            // subClass.prototype.getSubValue=function(){
+            //      return this.subValue;
+            // }
+
+            // var a1=new subClass();
+            //   console.log(a1.superValue); 
+            //   a1.superValue.push('5');
+            //   console.log(a1.superValue); 
+             // console.log(a1.getSuperValue());
+                //console.log(a1 instanceof subClass);
+               // console.log(a1 instanceof superClass);
+
+            /**
+            ** @创建即继承，构造函数继承
+            **
+            */
+            //1 声明父类
+            // function superClass(id){
+            //     this.books=['1','2','3'];
+            //     this.id=id;
+            // }
+
+            // //2 父类声明原型方法
+            //   superClass.prototype.showBooks=function(){
+            //       console.log(this.books);
+            //   }
+            // //3 声明子类
+            // function subClass(id,name){
+            //     //继承父类
+            //     superClass.call(this,id);
+            //     this.name=name;
+            // }
+            // subClass.prototype=new superClass;
+            // subClass.prototype.getTime=function(){
+            //        console.log(this.name);
+            // }
+            // var a=new subClass(10);
+               
+           /**
+            ** @洁净的继承者-----原型式继承
+            **
+            */
+            function inheritObject(o){
+               //声明一个过渡函数对象
+               function F(){}
+               //过渡对象的原型继承父对象
+               F.prototype=o;
+               //返回过渡对象的一个实例，该实例的原型继承了父对象
+               return new F();
+            }
+            
+            // var book={
+            //     name:"js book",
+            //     alikeBook:['css book','html book']
+            // }
+            // var newbook=inheritObject(book);
+            //     console.log(newbook.name);
+            //     newbook.name="js books";
+            //     console.log(newbook.name);
+              
+
+            /**
+            ** 寄生式继承 继承原型
+            ** 传递参数 subClass 子类
+            ** 传递参数 superClass 父类
+            **/
+             function inheritPrototype(subClass,superClass){
+                 //复制一份父类的原型副本保存在变量中
+                 var p=inheritObject(superClass.property);
+                 //修正因为重写子类原型导致子类的constructor属性被修改
+                 p.constructor=subClass;
+                 //设置子类的原型
+                 subClass.property=p;
+             }
+
+            /**
+            **@多继承
+            *********/
+            //单继承 属性复制
+            //  var extend=function(target,source){
+            //      //遍历源对象中的属性
+            //      for(var property in source){
+            //          target[property]=source[property];
+            //      }
+            //      return target;
+            //  }
+            //  var book={
+            //       name:'javascript 设计模式',
+            //       alike:['ds','sdfd','sdfs']
+            //  }
+            //  var anotherbook={
+            //      color:'blue'
+            //  }
+            //  extend(anotherbook,book);
+            //  console.log(anotherbook.alike[1]);
+
+            /***
+            ** @多继承 属性复制
+            ***/
+            // var mix=function(){
+            //     var i=1,//从第二个参数起为被继承的对象
+            //         len=arguments.length,
+            //         target=arguments[0],//目标对象
+            //         arg;   //缓存参数对象
+
+            //         for(;i<len;i++){
+            //             //缓存当前对象
+            //             arg=arguments[i];
+            //             //遍历被继承对象中的属性
+            //             for(var property in arg){
+            //                 //将被对象中的属性,复制到目标对象中
+            //                 target[property]=arg[property];
+            //             }
+            //         }
+
+            //    return target;     
+            // }
+
+            /***
+            ** 多种调用方式-----多态
+            ***/
+
+            //多态
+            // function add(){
+            //     //获取参数
+            //     var arg=arguments,
+            //     //获取参数长度
+            //        len=arguments.length;
+            //     switch(len){
+            //         //如果没有参数
+            //         case 0:
+            //             return 10;
+            //         //如果只有一个参数
+            //         case 1:
+            //             return 10 + arg[0];
+            //         //如果有两个参数
+            //         case 2:
+            //             return arg[0]+arg[1];
+            //     }
+            // }
+
+
+
+
+            
+
+
+      </script> 
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简单的工厂模式</title>
+</head>
+
+<body>
+    <script>
+        /**
+            ** 篮球基类
+            **/
+        // var Basketball=function(){
+        //     this.info='篮球是美国的！';
+        // }
+        // Basketball.prototype={
+        //     getMember:function(){
+        //         console.log('五个队员');
+        //     },
+        //     getBallSize:function(){
+        //         console.log('篮球比羽毛球大');
+        //     }
+        // }
+
+        // /**
+        //  **足球基类
+        // **/
+        // var Football=function(){
+        //      this.info='足球是很好玩的';
+        // }
+
+        // Football.prototype={
+        //       getMember:function(){
+        //            console.log('11成员');
+        //       },
+        //       getBallSize:function(){
+        //            console.log('足球也很大');
+        //       }
+        //  }
+
+        //  /**
+        //  **  网球基类
+        //  *****/
+        //   var Tennis=function(){
+        //       this.info="每年有很多网球联赛";
+        //   }
+        //   Tennis.prototype={
+        //        getMember:function(){
+        //            console.log('1个队员');
+        //        },
+        //        getBallSize:function(){
+        //            console.log('很小的球');
+        //        }
+        //   }
+
+        // //运动工厂
+        //   var sportFactory=function(name){
+        //       switch(name){
+        //           case 'NBA':
+        //               return new Basketball();
+        //           case 'wordCup':
+        //               return new Football();
+        //           case 'FrenchOpen':
+        //               return new Tennis();
+        //       }
+        //   }
+
+        /**
+        ** 工厂模式
+        ******/
+        // function createBook(name,time,type){
+        //     //创建一个对象，并对对象拓展属性和方法
+        //     var O=new Object();
+        //     O.name=name;
+        //     O.time=time;
+        //     O.type=type;
+        //     O.getName=function(){
+        //         console.log(this.name);
+        //     }
+        //     return O;   
+        // }
+
+        // var books1=new createBook('js','dfsd','dfsdf');
+        // var books2=new createBook('js1','dfsd','dfsdf');
+        // books1.getName();
+        // console.log(books1);
+        // books2.getName();
+
+        /**
+        ** 弹出层工厂模式
+        ***/
+        // function createPop(type,text){
+        //       var O=new Object();
+        //       O.content=text;
+        //       O.show=function(){
+        //           //显示
+        //       }
+        //       if(type=='alert'){
+
+        //       }
+        //       if(type=='confirm'){
+
+        //       }
+        // }
+    </script>
+</body>
+
+</html>

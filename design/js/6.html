@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>建造者模式</title>
+</head>
+<body>
+    <script>
+        /**
+         *@创建一位人类
+        */
+        var Human=function(param){
+            //技能
+            this.skill=param && param.skill || "保密";
+            //爱好
+            this.hobby=param && param.hobby || "保密";
+        }
+        //类人原型方法
+        Human.prototype={
+            getSkill:function(){
+                return this.skill;
+            },
+            getHobby:function(){
+                return this.hobby;
+            }
+        }
+
+        //实例化姓名类
+         var named=function(name){
+              var _this=this;
+             //构造器
+             //构造函数解析姓名的姓与名
+             (function(name,_this){
+                 _this.wholeName=name;
+                 //indexOf指定的字符串值在字符串中首次出现的位置。
+                 if(name.indexOf('')>-1){//slice() 方法可从已有的数组中返回选定的元素。 语法 arrayObject.slice(start,end) 参数描述 start 必需
+                    _this.FirstName=name.slice(0,name.indexOf(''));
+                    _this.secondName=name.slice(name.indexOf(''));
+                 }
+             })(name,_this)
+         }
+
+         //实例化职位类
+         var Work=function(work){
+             var _this=this;
+             //构造器
+             //构造函数中通过传入的职位特征来设置相应职位以及描述
+             (function(work,_this){
+                 switch(work){
+                     case 'code':
+                       _this.work='工程师';
+                       _this.descript="每天沉醉于编程";
+                    case 'Ui':
+                       _this.work="设计师";
+                       _this.descript="每天沉醉于设计";
+                 }
+             })(work,_this);
+         }
+
+         /**
+         **应聘者建造者
+         **@param name:姓名
+         **@param work:期望职位
+         ****/
+         var Person=function(name,work){
+              //创建应聘者缓存对象
+              var _person=new Human();
+              //创建应聘者姓名解析对象
+               _Person.name=new named(name);
+              //创建应聘者期望职位
+              _person.work=new Work(work);
+              //将创建的应聘者对象返回
+              return _person;
+         }
+         //如何使用
+         var person=new Person('xiaoming','code');  
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第一章</title>
+</head>
+
+<body>
+    <script>
+        /***
+            @函数式写法,
+             为全局变量
+        ****/
+        // function checkName() {
+        //     //验证用户名 
+        // }
+
+        // function checkemail() {
+        //     //验证邮箱
+        // }
+        // function checkqq() {
+        //     //验证邮箱
+        // }
+        //以上代码等价于
+        // var checkName = function () {
+        //     //验证用户名
+        // }
+
+        /****
+             用对象收编变量
+        *****/
+        // var checkObject = {
+        //     checkName: function () {
+
+        //     },
+        //     checkemail: function () {
+
+        //     },
+        //     checkqq: function () {
+
+        //     }
+        // }
+        //调用 checkObject.checkName();
+        //用对象收编变量，不好处就是不能重复使用
+
+        /****
+             真假对象
+        *****/
+        // var checkObject = function () {
+        //     return {
+        //         checkName: function () {
+
+        //         },
+        //         checkemail: function () {
+
+        //         },
+        //         checkqq: function () {
+
+        //         }
+        //     }
+        // }
+        //调用方式，var a=checkObject(); a.checkName();
+        //  var a=checkObject();
+        //  console.log(a);
+
+        /****
+            以上为对象的创建方式
+            以下为类的创建方式
+        *****/
+         
+        //    var checkObject=function(){
+        //        this.checkName=function(){};
+        //        this.checkemail=function(){};
+        //        this.checkqq=function(){};
+        //    }
+        //     var b=new checkObject();
+        //     console.log(b);
+        //new 完以后，会变成真假对象也就是b,但这么做每次new一个复制一堆方法，很浪费于是有了下面的创建方式
+
+        // var checkObj = function () {};
+        // checkObj.prototype.checkName = function () {
+        //     console.log(1)
+        //     return this;
+        // }
+        // checkObj.prototype.checkemail = function () {
+        //     console.log('email');
+        //     return this;
+        // }
+        // checkObj.prototype.checkqq = function () {
+        //     console.log('qq');
+        //     return this;
+        // }
+        // a = new checkObj();
+        // console.log(a);
+
+        //以上写法不方便，于是演变成了
+
+        //  var checkObj = function () {};
+        //  checkObj.prototype={
+        //       checkName:function(){
+        //       },
+        //       checkemail:function(){
+        //       }
+        //  }
+        //  var a=new checkObj();
+        //      console.log(a.checkName);
+        //以上类里的方法，如果都使用呢？就会全部用 . 的方式调用，麻烦！于是演变成了
+        
+        //   var checkObj = function () {};
+        //  checkObj.prototype={
+        //       checkName:function(){
+        //           console.log(1);
+        //           return this;
+        //       },
+        //       checkemail:function(){
+        //           console.log(2);
+        //           return this;
+        //       }
+        //  }
+        //  var a=new checkObj();
+        //      a.checkName().checkemail();
+        //      console.log(a.checkName);
+
+        /*****
+           函数的祖先
+        ******/
+          //向javascrpt语言提供的对象类中添加
+        //   Function.prototype.checkName=function(){
+        //       console.log(1);
+        //   };
+          //函数式调用祖先添加的方式
+        //   var f=function(){};
+        //       f.checkName();
+          //类式调用祖先添加方式
+        //    f=new Function();
+        //    f.checkName();
+        //以上向祖先添加方法，污染了原生对象Function,可以统一添加方法的功能
+          
+        //  Function.prototype.addMethod=function(name,fn){
+        //       this[name]=fn;
+        //  }
+
+        //  var methods=new Function();
+        //  methods.addMethod('checkName',function(){
+        //      //验证姓名
+        //      console.log(1);
+        //  })
+        //  methods.addMethod('checkemail',function(){
+        //      //验证邮箱
+        //  })
+        //  methods.checkName();
+
+        //  //以上也可以链式添加和链式使用
+        //   Function.prototype.addMethod=function(name,fn){
+        //       this[name]=fn;
+        //       return this;
+        //  }
+
+        //  var methods=new Function();
+        //  methods.addMethod('checkName',function(){
+        //      //验证姓名
+        //      console.log(1);
+        //      return this;
+        //  }).addMethod('checkemail',function(){
+        //      return this;
+        //  })
+         
+        //  methods.checkName().checkemail();
+
+        
+    </script>
+</body>
+
+</html>
