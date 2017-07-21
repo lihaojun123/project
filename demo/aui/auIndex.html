@@ -17,18 +17,40 @@
         </a>
         <div class="aui-title">Title</div>
     </header>
-    <div class="aui-content">
-        <div class="aui-tab" id="tab">
-            <div class="aui-tab-item aui-active">Item1</div>
-            <div class="aui-tab-item">tem2</div>
-            <div class="aui-tab-item">Item3</div>
-            <div class="aui-tab-item">Item4</div>
+    <div class="load"><img src="loading.gif" /></div>
+    <div class="aui-content aui-margin-b-15 aui-refresh-content">
+        
+        <div id="test">
+
         </div>
-        <div class="tab-content tab-content1">1</div>
-        <div class="tab-content tab-content2">2</div>
-        <div class="tab-content tab-content3">3</div>
-        <div class="tab-content tab-content4">4</div>
+        
     </div>
+    <div class="loading"><img src="loading.gif" /></div>
+    <script type="text/x-dot-template" id="useType0">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-header">
+                通讯录样式列表
+            </li>
+            {{~it:value:index}}
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 3rem;">
+                        <img src="../../image/demo5.png" class="aui-img-round aui-list-img-sm">
+                    </div>
+                    <div class="aui-list-item-inner aui-list-item-arrow">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-font-size-14">AUI</div>
+                            <div class="aui-list-item-right">08:00</div>
+                        </div>
+                        <div class="aui-list-item-text">
+                            {{=value.content}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {{~}}
+        </ul>
+    </script>
     <footer class="aui-bar aui-bar-tab" id="footer">
         <div class="aui-bar-tab-item aui-active" tapmode>
             <i class="aui-iconfont aui-icon-home"></i>
@@ -50,17 +72,60 @@
         </div>
     </footer>
     <script type="text/javascript" src="../../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../plugs/aui/script/api.js"></script>
     <script type="text/javascript" src="../../plugs/aui/script/aui-tab.js"></script>
+    <script type="text/javascript" src="../../plugs/aui/script/aui-pull-refresh.js"></script>
+    <script type="text/javascript" src="../../plugs/aui/script/aui-scroll.js"></script>
+    <script type="text/javascript" src="//mockjs.com/dist/mock.js"></script>
+    <script type="text/javascript" src="mockData.js"></script>
+    <script type="text/javascript" src="../../plugs/doT/doT.js"></script>
     <script>
-        $(".tab-content1").show();
-        var tab = new auiTab({
-            element: document.getElementById("tab"),
-            index: 1,
-            repeatClick: false
+        var pullRefresh = new auiPullToRefresh({
+            container: document.querySelector('.aui-refresh-content'),//下拉容器
+            triggerDistance: 200 //下拉高度
         }, function (ret) {
-               $(".tab-content").hide();
-               $(".tab-content"+ret.index).show();
+            if (ret.status == "success") {
+                $('.load').css('display', 'block');
+                getAjax(10, 1);
+            } else {
+                alert('加载失败！');
+            }
+
+        })
+
+        function getAjax(pageSize, loadStatus) {
+            $.ajax({
+                url: 'get.json',
+                datatype: 'json',
+                type: 'get',
+                data: {},
+                success: function (data) {
+                    if (loadStatus) {
+                        $('.load').css('display', 'none');
+                        pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+                    }
+
+                    var data = JSON.parse(data);
+                    var tmpltxt = doT.template(document.getElementById("useType0").innerHTML);//生成模板方法
+                    document.getElementById("test").innerHTML = tmpltxt(data.data.list);//数据渲染
+                    //console.log(data.data);
+                },
+                error: function (err) {
+
+                }
+            });
+        }
+        var scroll = new auiScroll({
+            listen: true, //是否监听滚动高度，开启后将实时返回滚动高度
+            distance: 0 //判断到达底部的距离，isToBottom为true
+        }, function (ret) {
+             if(ret.isToBottom){
+                // alert('到底部了');
+                 $('.load').css('display', 'block');
+                getAjax(10, 1);
+             }
         });
+        getAjax();
     </script>
 </body>
 

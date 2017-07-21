@@ -1,4 +1,29 @@
+body{
+  background:#fff;
+}
 .aui-content .tab-content{
   width:100%;
   display: none;
+}
+.load{
+  width:100%;
+  line-height: 25px;
+  text-align: center;
+  display: none;
+
+}
+.load img{
+  width:40px;
+  height:40px;
+}
+.loading{
+  width:100%;
+  line-height: 25px;
+  text-align: center;
+  display: block;
+  padding-bottom:50px;
+}
+.loading img{
+  width:40px;
+  height:40px;
 }

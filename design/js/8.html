@@ -14,34 +14,77 @@
 
         //比如以下代码结构可以使用单例模式
 
-        function g(id) {
-            return document.getElementById(id);
-        }
+        // function g(id) {
+        //     return document.getElementById(id);
+        // }
 
-        function css(id, key, value) {
-            //简单样式属性设置
-            g(id).style[key] = value;
-        }
-        function attr(id, key, value) {
-            g(id)[key] = value;
-        }
-        function html(id, value) {
-            g(id).innerHTML = value;
-        }
-        function on(id, type, fn) {
-            g(id)['on' + type] = fn;
-        }
+        // function css(id, key, value) {
+        //     //简单样式属性设置
+        //     g(id).style[key] = value;
+        // }
+        // function attr(id, key, value) {
+        //     g(id)[key] = value;
+        // }
+        // function html(id, value) {
+        //     g(id).innerHTML = value;
+        // }
+        // function on(id, type, fn) {
+        //     g(id)['on' + type] = fn;
+        // }
+        //单例模式
+        // var QFC = {
+        //     g: function (id) {
+        //         return document.getElementById(id);
+        //     },
+        //     css: function (id, key, value) {
+        //         //简单样式属性设置
+        //         this.g(id).style[key] = value;
+        //     },
+        //     //......
+        // }
 
-        var QFC = {
-            g: function (id) {
-                return document.getElementById(id);
-            },
-            css: function (id, key, value) {
-                //简单样式属性设置
-                this.g(id).style[key] = value;
-            },
-            //......
-        }
+        /**
+        **无法修改的静态变量
+        **/
+
+        var Config=(function(name){
+             var conf={
+                 "COUNT-MAX":1000,
+                 "MIN-VAR":'我是一个静态变量',
+                 "LONG":"我们都是静态变量"
+                }
+
+            return{
+                get:function(name){
+                     return   conf[name]?conf[name]:null;
+                }
+              }
+        })();
+         console.log(Config.get('LONG'));
+
+         /*
+           ** 惰性单例模式
+         ***/
+          var LazySinger=(function(){
+              var _instance=null;
+                   function Single(){
+                       //这里定义私有属性和方法
+                       return{
+                           property:'1.0',
+                           pubMethod:function(){
+                                console.log("这里是一个方法");   
+                           }
+                       }
+                   }
+               return function (){
+                   if(!_instance){
+                      _instance=Single(); 
+                   }
+
+                   return _instance;
+               }
+
+          })()
     </script>
 </body>
 

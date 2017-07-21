@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+    	  /* 新手上路 start */
+
+.mask-newcomer-wrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+}
+
+.mask-newcomer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.newcomer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -500px;
+    margin-top: -300px;
+    width: 1000px;
+    height: 600px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.choose {
+    width: 100%;
+    height: 100%;
+    background: url('images/newcomer-choose.png') no-repeat;
+}
+
+.choose a {
+    position: absolute;
+    bottom: 139px;
+    width: 320px;
+    height: 120px;
+}
+
+.choose .buyer {
+    left: 138px;
+}
+
+.choose .seller {
+    left: 532px;
+}
+
+.style-buyer-seller {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 24px 25px 26px;
+}
+
+.identity-title {
+    position: relative;
+    height: 28px;
+    background: url('images/newcomer-title.png') no-repeat center top;
+    margin-bottom: 14px;
+}
+
+.tab-identity,
+.newcomer-close {
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+
+.tab-identity {
+    right: 38px;
+    width: 96px;
+    height: 28px;
+    background: url('images/tab-identity.png') no-repeat;
+}
+
+.newcomer-close {
+    right: 0;
+    width: 28px;
+    height: 28px;
+    background: url('images/newcomer-close.png') no-repeat;
+}
+
+.img-carousel {
+    position: relative;
+    width: 853px;
+    height: 478px;
+    margin: 0 auto;
+}
+
+.img-carousel-seller,
+.img-carousel-buyer {
+    display: none;
+}
+
+.carousel-buyer,
+.carousel-seller {
+    height: 478px;
+    overflow: hidden;
+}
+
+.img-carousel img {
+    width: 853px;
+    height: 478px;
+    vertical-align: middle;
+}
+
+.img-carousel .unslider-nav {
+    top: 494px;
+}
+
+.img-carousel .unslider-nav li {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #ff3f00;
+}
+
+.img-carousel .unslider-nav .unslider-active {
+    background: #ff3f00;
+}
+
+.img-carousel .unslider-arrow {
+    width: 20px;
+    height: 36px;
+    text-indent: -999px;
+    top: 50%;
+    margin-top: -18px;
+    background-repeat: no-repeat;
+}
+
+.img-carousel .prev {
+    left: -48px;
+    background-image: url('images/new-left-dark.png');
+}
+
+.img-carousel .prev:hover {
+    background-image: url('images/new-left-light.png');
+}
+
+.img-carousel .unslider-arrow.next {
+    right: -48px;
+    background-image: url('images/new-right-dark.png');
+}
+
+.img-carousel .unslider-arrow.next:hover {
+    background-image: url('images/new-right-light.png');
+}
+
+
+/* 新手上路 end */
+    </style> 
+</head>
+
+<body>
+     
+      <div class="mask-guide-wrapper J-mask-guide-wrapper">
+        <div class="mask-guide"></div>
+        <div class="mask-guide-content">
+            <div class="mask-guide-one J-mask-guide-one">
+                <a href="javascript:;"></a>
+            </div>
+            <div class="mask-guide-two J-mask-guide-two">
+                <a href="javascript:;"></a>
+            </div>
+            <div class="mask-guide-three J-mask-guide-three">
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+    </div> 
+    <!-- 遮罩引导页 end -->
+
+    <script type="text/javascript" src="http://img.qfc.cn/static/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="unslider-min.js"></script>
+    <!-- 新手上路 end -->
+    <script>
+    	// 新手上路 start
+try {
+    $('.carousel-buyer').unslider({
+        infinite: true,
+        nav: true,
+        arrows: true
+    })
+
+    $('.carousel-seller').unslider({
+        infinite: true,
+        nav: true,
+        arrows: true
+    })
+} catch (error) {
+
+}
+
+
+$('.J-newcomer').click(function() {
+    $('.J-mask-newcomer-wrapper').show()
+    $('.J-choose').show()
+})
+
+$('.J-buyer').click(function() {
+    $('.J-choose').hide()
+    $('.J-style-buyer-seller').show()
+    $('.J-img-carousel-buyer').show()
+})
+
+$('.J-seller').click(function() {
+    $('.J-choose').hide()
+    $('.J-style-buyer-seller').show()
+    $('.J-img-carousel-seller').show()
+})
+
+$('.J-newcomer-close,.mask-newcomer').click(function() {
+    $('.J-mask-newcomer-wrapper').hide()
+    $('.J-style-buyer-seller').hide()
+    $('.J-img-carousel-buyer').hide()
+    $('.J-img-carousel-seller').hide()
+
+})
+
+$('.J-tab-identity').click(function() {
+        $('.J-choose').show()
+        $('.J-style-buyer-seller').hide()
+        $('.J-img-carousel-buyer').hide()
+        $('.J-img-carousel-seller').hide()
+    })
+    // 新手上路 end
+    </script>   
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入样式 -->
+    <!--<link rel="stylesheet" href="../../plugs/mintui/mintui.css">-->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: "微软雅黑";
+        }
+
+        .content {
+            padding: 45px 0;
+        }
+
+        .tabContent {
+            margin-top: 8px;
+        }
+
+        .d {
+            background: red;
+        }
+
+        .swipe {
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈" fixed="true">
+            <router-link to="/" slot="left">
+                <mt-button icon="back">返回</mt-button>
+            </router-link>
+            <mt-button icon="more" slot="right"></mt-button>
+        </mt-header>
+
+        <div class="content">
+            <mt-swipe :auto="4000" class="swipe">
+                <mt-swipe-item class="swiper_wrap"><a href="#"><img src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg"></a></mt-swipe-item>
+                <mt-swipe-item><a href="#"><img src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg"></a></mt-swipe-item>
+                <mt-swipe-item><a href="#"><img src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa5obmqrmvj305k05k3yh.jpg"></a></mt-swipe-item>
+            </mt-swipe>
+            <mt-navbar v-model="tabar">
+                <mt-tab-item id="1">选项一</mt-tab-item>
+                <mt-tab-item id="2">选项二</mt-tab-item>
+                <mt-tab-item id="3">选项三</mt-tab-item>
+            </mt-navbar>
+            <!-- tab-container -->
+            <mt-tab-container v-model="tabar" class="tabContent">
+                <mt-tab-container-item id="1">
+                    <div class="d">
+                        dsfsdfs
+                    </div>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="2">
+                    <mt-cell v-for="n in 4" :title="'测试 ' + n" />
+                </mt-tab-container-item>
+                <mt-tab-container-item id="3">
+                    <mt-cell v-for="n in 6" :title="'选项 ' + n" />
+                </mt-tab-container-item>
+            </mt-tab-container>
+        </div>
+
+        <mt-actionsheet :actions="actions" v-model="sheetVisible">
+           
+        </mt-actionsheet>
+        <mt-tabbar v-model="sected" fixed="true">
+            <mt-tab-item id="外卖" @click.native="handleClick">
+                <img slot="icon" src="../assets/100x100.png"> 外卖
+            </mt-tab-item>
+            <mt-tab-item id="订单">
+                <img slot="icon" src="../assets/100x100.png"> 订单
+            </mt-tab-item>
+            <mt-tab-item id="发现">
+                <img slot="icon" src="../assets/100x100.png"> 发现
+            </mt-tab-item>
+            <mt-tab-item id="我的">
+                <img slot="icon" src="../assets/100x100.png"> 我的
+            </mt-tab-item>
+        </mt-tabbar>
+
+    </div>
+</body>
+<!-- 先引入 Vue -->
+<script src="../../plugs/vue/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="../../plugs/mintui/mint.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            sected: '订单',
+            active: '',
+            tabar: '1',
+            value: "true",
+            popupVisible: true,
+            actions:[],
+            sheetVisible:true
+
+        },
+        methods: {
+            handleClick: function () {
+                this.$toast({
+                    message: '操作成功',
+                    iconClass: 'icon icon-success'
+                });
+            }
+        }
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../../plugs/mintui/mintui.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: "微软雅黑";
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <mt-header title="我是demo 哈哈" fixed="true">
+            <router-link to="/" slot="left">
+                <mt-button icon="back">返回</mt-button>
+            </router-link>
+            <mt-button icon="more" slot="right"></mt-button>
+        </mt-header>
+
+        <mt-cell title="标题文字" icon="more" value="带 icon"></mt-cell>
+        <mt-cell title="标题文字" icon="more" value="带 icon"></mt-cell>
+        <mt-cell title="标题文字" icon="more" value="带 icon"></mt-cell>
+        <mt-cell title="标题文字">
+            <span>icon 是图片</span>
+            <img slot="icon" src="../assets/100x100.png" width="24" height="24">
+        </mt-cell>
+        <mt-cell title="标题文字" is-link>
+            <span style="color: green">这里是元素</span>
+        </mt-cell>
+        <mt-cell title="标题" label="描述信息" is-link></mt-cell>
+        <mt-navbar v-model="tabar">
+            <mt-tab-item id="1">选项一</mt-tab-item>
+            <mt-tab-item id="2">选项二</mt-tab-item>
+            <mt-tab-item id="3">选项三</mt-tab-item>
+        </mt-navbar>
+
+        <!-- tab-container -->
+        <mt-tab-container v-model="tabar">
+            <mt-tab-container-item id="1">
+                <mt-cell v-for="n in 10" :title="'内容 ' + n" />
+            </mt-tab-container-item>
+            <mt-tab-container-item id="2">
+                <mt-cell v-for="n in 4" :title="'测试 ' + n" />
+            </mt-tab-container-item>
+            <mt-tab-container-item id="3">
+                <mt-cell v-for="n in 6" :title="'选项 ' + n" />
+            </mt-tab-container-item>
+        </mt-tab-container>
+         <mt-tab-container v-model="sected">
+            <mt-tab-container-item id="外卖">
+                <mt-cell v-for="n in 10" :title="'内容 ' + n" />
+            </mt-tab-container-item>
+            <mt-tab-container-item id="订单">
+                <mt-cell v-for="n in 4" :title="'测试 ' + n" />
+            </mt-tab-container-item>
+            <mt-tab-container-item id="发现">
+                <mt-cell v-for="n in 6" :title="'选项 ' + n" />
+            </mt-tab-container-item>
+            <mt-tab-container-item id="我的">
+                <mt-cell v-for="n in 6" :title="'选项 ' + n" />
+            </mt-tab-container-item>
+        </mt-tab-container>
+        <mt-tabbar v-model="sected" fixed="true">
+            <mt-tab-item id="外卖" @click="tiaozhuan">
+                <img slot="icon" src="../assets/100x100.png"> 外卖
+            </mt-tab-item>
+            <mt-tab-item id="订单">
+                <img slot="icon" src="../assets/100x100.png"> 订单
+            </mt-tab-item>
+            <mt-tab-item id="发现">
+                <img slot="icon" src="../assets/100x100.png"> 发现
+            </mt-tab-item>
+            <mt-tab-item id="我的">
+                <img slot="icon" src="../assets/100x100.png"> 我的
+            </mt-tab-item>
+        </mt-tabbar>
+
+    </div>
+</body>
+<!-- 先引入 Vue -->
+<script src="../../plugs/vue/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="../../plugs/mintui/mint.js"></script>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            sected: '订单',
+            active: '',
+            tabar:'1'
+        },
+        methods: {
+            handleClick: function () {
+                this.$toast('Hello world!');
+            },
+            tiaozhuant:function(){
+                window.location.href="/demo.html";
+            }
+        }
+    })
+
+</script>
+
+</html>
