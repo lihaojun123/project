@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>代理模式</title>
+</head>
+
+<body>
+
+    <script>
+        //跨域问题的处理
+        //1、站长统计
+        var Count = (function () {
+            //缓存图片
+            var img = new Image();
+            //返回统计函数
+            return function (param) {
+                //统计请求字符串
+                var str = "http://www.count.com/a.gif?";
+                //拼接请求字符串
+
+                for (var i in param) {
+                    str += i + "=" + param[i];
+                }
+                _img.src = str;
+            }
+        })()
+
+        //测试用例
+        Count({ num: 10 });
+    </script>
+    <script type="text/Javascript">
+        function jsonpCallBack(res,req){ }
+
+    </script>
+    <script src="http://xxx.com?callback=jsonpCallBack&data=getJsonData"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

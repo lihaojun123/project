@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>装饰者模式</title>
+</head>
+
+<body>
+     <input type="text" id="demo">
+
+     <div id="demoText">sdfssfsddfsd</div>
+
+    <script>
+        /**
+          ** 为输入框的新需求
+          ***/
+        //输入框元素
+        // var telInput = document.getElementById('tel_input');
+        // //输入格式提示文案
+        // var telWarnText = document.getElementById('tel_warn_text');
+        // //点击输入框显示输入框格式提示文案
+
+        // input.onclick = function () {
+        //     telWarnText.style.display = 'inline-block';
+        //     telWarnText.style.display = "none";
+        // }
+
+        /**
+          **  装饰者模式修改
+         **/
+        var decorator = function (input, fn) {
+            //获取事件源
+            var input = document.getElementById(input);
+
+            //若事件源已经绑定事件
+            if (typeof input.onclick === "function") {
+                //缓存事件源原有回调函数
+                var onclickFn = input.onclick;
+                //为事件源定义新的事件
+                input.onclick = function () {
+                    onclickFn();
+                    //执行事件源新增回调函数
+                    fn();
+                }
+            } else {
+                //事件源未绑定事件，直接为事件源添加新增回调函数
+                input.onclick = fn;
+            }
+            //做其他事情
+        }
+        
+        var demo1=document.getElementById("demoText");
+            demo1.onclick=function(){
+                  alert('');
+            }
+        decorator("demoText",function(){
+
+              //绑定过事件对象的，不能用this,指法
+             this.style.display="none";
+        });
+
+    </script>
+
+</body>
+
+</html>

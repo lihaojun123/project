@@ -7,6 +7,35 @@
     <title>适配器模式</title>
 </head>
 <body>
-      
+      <script>
+          window.CJ=CJ=JQuery; //jquery适配器;
+
+          //参数适配器
+
+           function doSomeThing(name,title,age,color,size,price){}
+
+           /**
+           ** obj.name:name
+           ** obj.title:title
+           ** obj.age:age 等等
+           **/
+           function doSomeThing(obj){
+               var _adapter={
+                   name:"xx",
+                   title:"xx",
+                   age:"xxxx",
+                   color:"dfdsf",
+                   size:"fdsfd",
+                   price:20
+               }
+
+               for(var i in _adapter){
+                   _adapter[i]=obj[i] || _adapter[i];
+               }
+               //或者对象合并
+               extend(_adapter,obj);
+           }
+
+      </script> 
 </body>
 </html>

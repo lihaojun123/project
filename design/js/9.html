@@ -8,6 +8,18 @@
 </head>
 <body>
     <script>
+       /***隐藏提示框功能****/
+          document.onclick=function(e){
+              e.preventDefault();
+              if(e.target!==document.getElementById('demo')){
+                   hidePageAlert()  
+              }
+          }
+          function hidePageAlert(){
+                //隐藏提示框功能
+          }
+      
+
        function addEvent(dom,type,fn){
            if(dom.addEventListenner){
                dom.addEventListenner(type,fn,false)

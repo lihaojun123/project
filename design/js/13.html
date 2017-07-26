@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>桥接模式</title>
+</head>
+<body>
+      <script>
+          /**
+          ** 添加交互事件
+          **/
+          var spans=document.getElementsByTagName('span');
+             
+           //为用户绑定特效
+           spans[0].onmouseover=function(){
+               this.style.color="red";
+           }
+           span[0].onmouseout=function(){
+                this.style.color="black";
+           }
+           //抽离公用部分
+           function changColor(dom,color,bg){
+                dom.style.color=color;
+                dom.style.background=bg;
+           }
+           
+           spans[0].onmouseover=function(){
+               changColor(this,"#fff","#fdf00");
+           }
+
+           /**
+           ** 多元化对象
+           **/
+           //运动单元
+
+           function speed(x,y){
+               this.x=x;
+               this.y=y;
+           }
+           speed.prototype.run=function(){
+               //运动起来
+           }
+
+           function Color(cl){
+                this.color=cl;
+           }
+           Color.prototype.draw=function(){
+               //绘制颜色
+           }
+
+           function Shape(sp){
+               this.shape=sp;
+           }
+           Shape.prototype.change=function(){
+               //变形
+           }
+
+           function Ball(x,y,c){
+                //实现运动单元
+                this.speed=new speed(x,y);
+                this.Color=new Color(c);
+           }
+           Ball.prototype.init=function(){
+               //实现运动
+               this.speed.run();
+               //实现着色单元
+               this.Color.draw();
+           }
+      </script>
+</body>
+</html>
