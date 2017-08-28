@@ -1,0 +1,38 @@
+.alert{
+    width:40%;
+    background:red;
+    margin:auto;
+    position: relative;   
+}
+.alert .a-close{
+    position: absolute;
+    right:10px;
+    top:10px;
+    cursor: pointer;
+}
+.alert h3{
+    font-size:25px;
+    color:#999;
+    text-align: center;
+}
+.alert P{
+    text-align: center;
+}
+.alert .a-confirm{
+    border-top:1px solid #eee;
+    display: inline-block;
+    width:49.5%;
+    color:yellow;
+    line-height: 40px;
+    text-align: center;
+    border-right:1px solid #eee;
+    cursor: pointer;
+}
+.alert .a-cancel{
+    border-top:1px solid #eee;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    width:48.5%;
+    cursor: pointer;
+}

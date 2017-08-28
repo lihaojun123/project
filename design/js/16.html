@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/16.css">
+    <title>模板方法模式</title>
+</head>
+
+<body>
+    <script>
+        var Alert = function (data) {
+            //没有数据则返回，防止后面程序执行
+            if (!data) {
+                return;
+            }
+            //设置提示内容
+            this.content = data.content;
+            //创建提示框面板
+            this.panel = document.createElement("div");
+            this.contentNode = document.createElement("p");
+            this.confirmBtn = document.createElement('span');
+            this.closeBtn = document.createElement('b');
+            //为提示框面板添加class类
+            this.panel.className = "alert";
+            //为关闭按钮添加类
+            this.closeBtn.className = "a-close";
+            // this.closeBtn.innerHTML="x";
+            //为确定按钮添加类
+            this.confirmBtn.className = "a-confirm";
+            //为确定按钮添加文案
+            this.confirmBtn.innerHTML = data.confirm || "确认";
+            //为提示内容添加文本
+            this.contentNode.innerHTML = this.content;
+            this.success = data.success || function () { };
+            this.fail = data.fail || function () { };
+        }
+        //提示框原型方法
+        Alert.prototype = {
+            //创建方法
+            init: function () {
+                //生成提示框
+                this.panel.appendChild(this.closeBtn);
+                this.panel.appendChild(this.contentNode);
+                this.panel.appendChild(this.confirmBtn);
+                //插入页面中
+                document.body.appendChild(this.panel);
+                //绑定事件
+                this.bindEvent();
+                //显示提示框
+                this.show();
+            },
+            bindEvent: function () {
+                var _this = this;
+                this.closeBtn.onclick = function () {
+                    //执行关闭方法
+                    _this.fail();
+                    //隐藏弹框
+                    _this.hide();
+                }
+
+                this.confirmBtn.onclick = function () {
+                    //执行确认方法
+                     _this.success();
+                    //隐藏弹框
+                    _this.hide();
+                }
+            },
+            //隐藏弹框方法
+            hide: function () {
+                this.panel.style.display = "none";
+            },
+            //显示弹框
+            show: function () {
+                this.panel.style.display = "block";
+            }
+        }
+        /**
+        ** 根据模板创建类,右侧按钮提示框
+        **@data:{}
+        ***/
+        var rightAlert = function (data) {
+            //继承基本提示框构造函数
+            Alert.call(this, data);
+            //为确认按钮添加right类位置具右
+            this.confirmBtn.className = this.confirmBtn.className + ' right';
+        }
+        //继承基本提示框方法
+        rightAlert.prototype = new Alert();
+
+        /**
+        ** 标题提示框
+        **/
+        var TitleAlert = function (data) {
+            //继承基本提示框构造函数
+            Alert.call(this, data);
+            //设置标题内容
+            this.title = data.title || "温馨提示";
+            //创建标题组件
+            this.titleNode = document.createElement('h3');
+            //标题组件中写入标题内容
+            this.titleNode.innerHTML = this.title;
+        }
+        //继承基本提示框方法
+        TitleAlert.prototype = new Alert();
+        //对基本提示框创建方法拓展
+        TitleAlert.prototype.init = function () {
+            //插入标题
+            Alert.prototype.init.call(this);
+            this.panel.insertBefore(this.titleNode, this.panel.firstChild);
+            
+        }
+
+        /**
+        ** 带有取消按钮的提示框
+        **/
+
+        var cancelAlert = function (data) {
+            TitleAlert.call(this,data);
+            this.cancel = data.cancel;
+            //创建一个取消按钮
+            this.canceBtn = document.createElement('span');
+            //为取消按钮添加类
+            this.canceBtn.className = "a-cancel";
+            this.canceBtn.innerHTML = this.cancel || "取消";
+        }
+        cancelAlert.prototype = new Alert();
+        cancelAlert.prototype.init=function(){
+
+            TitleAlert.prototype.init.call(this);
+            this.panel.appendChild(this.canceBtn);
+        }
+        cancelAlert.prototype.bindEvent=function(){
+            var _this=this;
+            TitleAlert.prototype.bindEvent.call(_this);
+
+            this.canceBtn.onclick=function(){
+                     _this.fail();
+                     _this.hide();                  
+            }
+        }
+        
+         new cancelAlert({
+            title:"温馨提示",
+            content:"我是一个提示框啊",
+            confirm:"确定",
+            cancel:"取消",
+            success:function(){
+                alert('');
+            },
+            fail:function(){
+
+            }
+         }).init();
+
+
+    </script>
+</body>
+
+</html>

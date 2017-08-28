@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>状态模式</title>
+</head>
+<body>
+    <script>
+         //投票结果状态对象
+        //  var ResultState=function(){
+        //      var status={
+        //          status0:function(){
+        //              console.log("第一种情况");
+        //          },
+        //          status1:function(){
+        //              console.log("第二种情况");
+        //          },
+        //          status2:function(){
+        //              console.log("第三种情况");
+        //          },
+        //          status3:function(){
+        //              console.log("第四种情况");
+        //          }
+        //      }
+        //      //获取某一种状态并执行其对应的方法
+        //      function show(result){
+        //          status['status'+result] &&  status['status'+result]();
+        //      }
+        //      return {
+        //          show:show
+        //      }
+        //  }
+        //  ResultState.show(3);
+
+        /**
+        ** 创建超级玛丽的状态类
+        **/
+        var MarryStatus=function(){
+            //内部状态私有变量
+            var _currentStatus={},
+                status={
+                    jump:function(){},
+                    move:function(){},
+                    shoot:function(){},
+                    squat:function(){}
+                };
+            //动作控制类
+            var Action={
+                //改变状态方法
+                changeStatus:function(){
+                  //组合动作通过传递多个参数实现
+                  var arg=arguments;
+                  _currentStatus={};
+                  //如果有动作则添加动作
+                  if(arg.lenght){
+                      for(var i=0;i<arg.length;i++){
+                          _currentStatus[arg[i]]==true;
+                      }
+                  }
+                  return this;  
+                },
+                //执行动作
+                goes:function(){
+                    //遍历内部状态保存的动作
+                    for(var i in _currentStatus){
+                        status[i] && status[i]();
+                    }
+                    return this;
+                }  
+            }
+            return {
+                change:Action.changeStatus,
+                goes:Action.goes
+            }  
+        }
+    </script>
+</body>
+</html>

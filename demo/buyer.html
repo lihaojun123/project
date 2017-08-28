@@ -1,0 +1,2864 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>【有布】让找布卖布变得简单的一款专业纺织面料APP</title>
+    <link rel="shortcut icon" href="http://img.tnc.com.cn/www/images/favicon.ico">
+    <meta name="author" content="www.tnc.com.cn" />
+    <meta name="keywords" content="有布,找面料app,找布app,卖布app,面料app,纺织app" />
+    <meta name="description" content="有布是一款面向设计师和采购商的专业纺织面料采购APP平台，一键拍照找样，快速报价响应，80%供应商为十年电商平台认证商家，有布找样，就是不一样。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="买家版"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
+    <meta itemprop="name" content="买家版"/>
+    <meta itemprop="image" content=""/>
+    <script>
+    (function() {!function() {
+            var n, i, o, e, s;
+            return s = navigator.userAgent, e = s.indexOf("Windows Phone") >= 0, i = s.indexOf("Android") > 0 && !e, o = /iP(hone|od)/.test(s) && !e, n = document.documentElement, e ? (n.className += "win-phone", window.isWinPhone = !0) : i ? (n.className += "android", window.isAndroid = !0) : o ? (n.className += "ios", window.isIOS = !0) : (n.className += "pc", window.isPC = !0)
+        }()
+    }).call(this);
+    </script>
+    <style>
+    .dialog.fingerprint {
+        width: 14rem;
+        margin-left: -7rem
+    }.dialog.fingerprint.pre - content, .dialog.fingerprint.post - content {
+        font-size: .7rem;
+        line-height: 1rem;
+        text-align: left
+    }.dialog.fingerprint.post - content {
+        text-align: right
+    }.dialog.fingerprint.mid - content {
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-align: center
+    }.dialog.fingerprint.content {
+        padding: 1rem
+    }.dialog.fingerprint.btn-confirm {
+        color: #ffb637;
+        background - color: #b60927
+    }
+    </style>
+    <style>
+.wrapper {
+    position: relative;
+    margin: auto;
+    height: 100%;
+    background: #fff;
+    overflow: hidden
+}
+
+.pc .wrapper {
+    max-width: 640px
+}
+
+.pc body {
+    background: #e7e8eb;
+    overflow: hidden
+}
+
+.desktop-entrance {
+    width: 156px;
+    height: 97px;
+    position: absolute;
+    right: -172px;
+    top: 242px;
+    display: none
+}
+
+.desktop-entrance .link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: no-repeat center center;
+    background-size: contain
+}
+
+.desktop-entrance .rabbit {
+    width: 37px;
+    height: 47px;
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    background: no-repeat center center;
+    background-size: contain
+}
+
+.desktop-entrance:hover .rabbit {
+    -webkit-animation: swing 2s ease-in-out;
+    animation: swing 2s ease-in-out
+}
+
+
+
+
+.erase-finger {
+    width: 45px;
+    height: 75px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+    -webkit-animation: finger-wave 1.5s;
+    animation: finger-wave 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+
+.erase-finger .erase-p {
+    font-size: 14px;
+    color: #f60;
+    text-align: center
+}
+@-webkit-keyframes finger-wave {
+    0% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+}
+
+@keyframes finger-wave {
+    0% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+}
+
+@-webkit-keyframes swing {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    20% {
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg)
+    }
+
+    40% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+
+    60% {
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg)
+    }
+
+    80% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+}
+
+@keyframes swing {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    20% {
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg)
+    }
+
+    40% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+
+    60% {
+        -webkit-transform: rotate(15deg);
+        transform: rotate(15deg)
+    }
+
+    80% {
+        -webkit-transform: rotate(-15deg);
+        transform: rotate(-15deg)
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+}
+</style>
+<style>
+    html {
+    color: #000;
+    background: #FFF;
+    font-size: 16px
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,menu,button {
+    margin: 0;
+    padding: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+fieldset,img {
+    border: 0
+}
+
+ol,ul {
+    list-style: none
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: 400
+}
+
+input,textarea,select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit
+}
+
+legend {
+    color: #000
+}
+
+i {
+    font-style: normal
+}
+
+html,body {
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    font-size: 16px;
+    position: relative;
+    font-family: Lato,Helvetica Neue,Arial,SimSun,Helvetica,STHeiTi,Roboto Regular,Roboto,Droid Sans,Microsoft Yahei,sans-serif;
+    margin: 0;
+    padding: 0
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0
+}
+
+a,div {
+    -webkit-tap-highlight-color: transparent
+}
+
+a,a:active,a:hover {
+    color: #0057af;
+    text-decoration: none
+}
+
+input:focus,li:focus,span:focus,i:focus,img:focus,button:focus {
+    outline: 0
+}
+
+input[type=text],input[type=submit],button,textarea {
+    -webkit-appearance: none
+}
+
+html,body {
+    min-height: 100%;
+    height: 100%
+}
+
+.border-top,.border-bottom {
+    position: relative
+}
+
+.border-top:before,.border-bottom:after {
+    content: ' ';
+    display: block;
+    border-top: 1px solid #e1e1e1;
+    position: absolute;
+    left: 0;
+    right: 0
+}
+
+.border-top:before {
+    top: 0
+}
+
+.border-bottom:after {
+    bottom: 0
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5) {
+    .border-top:before,.border-bottom:after {
+        -webkit-transform: scaleY(.7);
+        -ms-transform: scaleY(.7);
+        transform: scaleY(.7);
+        -webkit-transform-origin: left bottom;
+        -ms-transform-origin: left bottom;
+        transform-origin: left bottom
+    }
+
+    .border-top:before {
+        -webkit-transform-origin: left top;
+        -ms-transform-origin: left top;
+        transform-origin: left top
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2) {
+    .border-top:before,.border-bottom:after {
+        -webkit-transform: scaleY(.5);
+        -ms-transform: scaleY(.5);
+        transform: scaleY(.5)
+    }
+}
+</style>
+<style>
+ .loading-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    background: #fff
+}
+
+.loading {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-top: -2.5rem;
+    margin-left: -2.5rem;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    border-radius: 2.5rem
+}
+
+.loading .background {
+    width: 99%;
+    height: 99%
+}
+
+.loading .text.progress {
+    position: absolute;
+    top: 50%;
+    margin-top: -.875rem;
+    text-align: center;
+    width: 100%;
+    line-height: 1.75rem;
+    height: 1.75rem
+}
+
+.loading .text.progress .percent {
+    font-size: 1.5rem;
+    font-weight: 700
+}
+
+.loading .text.progress .unit {
+    font-size: .9rem;
+    position: relative;
+    top: -.1rem;
+    margin-left: .1rem
+}
+
+.loading .text.rabbitpre {
+    position: absolute;
+    bottom: .9rem;
+    font-size: .65rem;
+    text-align: center;
+    width: 100%
+}
+
+.loading .logo.rabbitpre {
+    background: no-repeat center center;
+    background-size: contain;
+    width: 2.8rem;
+    height: 2.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -1.4rem;
+    margin-top: -1.4rem;
+    display: none
+}
+
+.loading-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #000;
+    color: rgba(0,0,0,.4);
+    text-align: center;
+    font-size: .5125rem;
+    height: 1.5rem;
+    line-height: 1.5rem
+}
+
+.page-ready .logo.rabbitpre {
+    background-image: url(imgs/loading-logo.png)
+}
+</style>
+<style>
+.page-list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    -webkit-perspective: 1200px;
+    perspective: 1200px
+}
+
+.page {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    background-color: #fff;
+    display: none;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+.page.current {
+    display: block
+}
+
+.page:after {
+    content: " ";
+    position: absolute;
+    width: 1.2rem;
+    height: .9rem;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: .5rem;
+    background: url(imgs/web-swipe-tip.png) no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation: webSwipeTipAfter 1.5s infinite ease-in-out;
+    animation: webSwipeTipAfter 1.5s infinite ease-in-out;
+    z-index: 100
+}
+
+.page:last-child:after {
+    display: none
+}
+
+.page[data-loop]:last-child:after {
+    display: block
+}
+
+@-webkit-keyframes webSwipeTipAfter {
+    0% {
+        opacity: 1;
+        filter: alpha(opacity=100)
+    }
+
+    100% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0)
+    }
+}
+
+@keyframes webSwipeTipAfter {
+    0% {
+        opacity: 1;
+        filter: alpha(opacity=100)
+    }
+
+    100% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0)
+    }
+}
+
+
+.page-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%
+}
+
+.cmp {
+    position: absolute;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+.cmp .cmp-inner {
+    width: 100%;
+    height: 100%;
+    line-height: .8rem
+}
+
+.cmp.image .cmp-inner {
+    background-size: 100%
+}
+
+.cmp.btn .cmp-inner {
+    font-size: .8rem;
+    background: #fff
+}
+
+.cmp.text i {
+    font-style: italic
+}
+
+.cmp.text .cmp-inner {
+    word-break: break-all
+}
+
+.cmp.video .cmp-inner {
+    width: 100%;
+    height: 100%
+}
+
+.cmp.form .cmp-inner {
+    width: auto;
+    height: auto;
+    padding: 1rem;
+    position: initial
+}
+
+.cmp.form input[type=text],.cmp.form input[type=submit] {
+    display: block;
+    width: 100%;
+    border: 1px solid #e9e9e9;
+    text-indent: .25rem;
+    line-height: 1.25rem;
+    margin-bottom: .5rem;
+    color: #000;
+    font-size: .7rem;
+    box-sizing: border-box;
+    height: 1.35rem;
+    border-radius: .15rem
+}
+
+.cmp.form input[type=submit] {
+    margin-bottom: 0;
+    color: #fff;
+    background: #217fbc;
+    border: 0
+}
+
+.cmp.form input[type=submit]:disabled {
+    background: #adadad
+}
+
+.cmp.one-call .cmp-inner .content {
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.33;
+    font-size: .9rem;
+    word-break: break-all;
+    border: 0;
+    background: transparent;
+    display: block;
+    width: 100%;
+    height: 100%
+}
+/*
+.cmp.fingerprint .cmp-inner {
+    display: block;
+    background-image: url(http://oss.szzbmy.com/rp2/apps/static/widget/pageManagement/fingerprint-empty-bg_d8d4301.png);
+    background-color: transparent;
+    background-size: 100% 100%
+}*/
+
+/*.cmp.fingerprint .cmp-inner .fingerprint-scan {
+    content: '';
+    position: absolute;
+    left: 2%;
+    top: 0;
+    width: 96%;
+    height: 1px;
+    background: #f37c77;
+    box-shadow: 0 0 1px 1px rgba(243,124,119,.5);
+    -webkit-animation: fingerScan 2s ease infinite;
+    animation: fingerScan 2s ease infinite
+}*/
+/*
+.cmp.fingerprint.tapped .cmp-inner {
+    background-image: url(http://oss.szzbmy.com/rp2/apps/static/widget/pageManagement/fingerprint-bg_0bb7d2f.png)
+}
+*/
+.cmp.fingerprint.tapped .cmp-inner .fingerprint-scan {
+    display: none
+}
+
+@-webkit-keyframes fingerScan {
+    0% {
+        top: 2%
+    }
+
+    100% {
+        top: 98%
+    }
+}
+
+@keyframes fingerScan {
+    0% {
+        top: 2%
+    }
+
+    100% {
+        top: 98%
+    }
+}
+
+.full-screen-loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7)
+}
+
+.full-screen-loading .icon-rabbitpre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -32px;
+    margin-top: -32px;
+    -webkit-animation: rotate2d 2s linear infinite;
+    animation: rotate2d 2s linear infinite
+}
+
+.form-submit-success {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7)
+}
+
+.form-submit-success .icon-rabbitpre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -53px;
+    margin-left: -32px
+}
+
+.form-submit-success p {
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: 25px
+}
+
+.icon-rabbitpre {
+    display: block;
+    width: 64px;
+    height: 64px;
+    background: url(http://oss.szzbmy.com/rp2/apps/static/widget/pageManagement/rabbitpre_ba92819.png) no-repeat center center;
+    background-size: contain
+}
+
+.praise .icon-text.active {
+    -webkit-animation: bounceOut 1s linear 0s 1 both;
+    animation: bounceOut 1s linear 0s 1 both
+}
+
+.praise .landscape {
+    line-height: 1
+}
+
+.praise .landscape .icon-v {
+    display: inline-block;
+    float: left;
+    margin-right: 17px
+}
+
+.praise .landscape .icon-text {
+    position: absolute;
+    bottom: 3px
+}
+
+.praise .portrait {
+    line-height: 1
+}
+
+.praise .portrait .icon-v {
+    display: block
+}
+
+.praise .portrait .icon-text {
+    display: block;
+    text-align: center
+}
+</style>
+<style>
+    .slide-progress{
+        position:absolute;
+        z-index:102;
+        width:.5rem
+        ;top:50%;
+        right:.25rem;
+        overflow:hidden
+    }
+    .progress-dot{
+        list-style:none;
+        padding:0;
+        background-color:#f9f9f9;
+        width:.3rem;
+        height:.3rem;
+        border-radius:.3rem;
+        opacity:.3;
+        filter:alpha(opacity=30);
+        margin:0 auto .3rem
+    }
+    .progress-dot.current{
+        opacity:.7;
+        filter:alpha(opacity=70);
+        width:.3rem;
+        height:.3rem;
+        background-color:transparent;
+        border:1px solid #fff;
+    }
+</style>
+
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+    <script>(function(){var e,t,d,n;t=document.documentElement,e=document.getElementsByTagName("head")[0],d=window.devicePixelRatio,d=d>=3?3:d>=2?2:1,t.setAttribute("data-dpr",d),n=1/d,window.dpr=d,window.rdpr=n}).call(this);</script>
+    <div id="loading-wrapper" class="loading-wrapper">
+    <div class="loading">
+        <canvas class="background" width="200" height="200"></canvas>
+        <p class="text progress"><img class="loading-img" src="imgs/loading.gif"/><span class="percent" style="display:none;">0</span><span class="unit" style="display:none;">%</span></p>
+        <!--<p class="text rabbitpre">RabbitPre</p>-->
+        <div class="logo rabbitpre"></div>
+    </div>
+    <p class="loading-bottom"></p>
+</div>
+
+    <ul id="page-list" class="page-list"></ul>
+    <ul id="slide-progress" class="slide-progress"></ul>
+
+    <div id="desktop-entrance" class="desktop-entrance">
+            <span class="rabbit"></span>
+        </a>
+    </div>
+</div>
+<script>
+    var require, define;
+!
+function(e) {
+    function r(e) {
+        if (!(e in u)) {
+            u[e] = !0;
+            var n = document.createElement("script");
+            return n.onerror = function() {
+                if (f.traceBack) {
+                    var n = e.replace(f.cdnDomain, f.mainDomain);
+                    if (n == e) return;
+                    r(n)
+                }
+            }, n.type = "text/javascript", n.src = e, t.appendChild(n), n
+        }
+    }
+    function n(e, n, t) {
+        var a = i[e] || (i[e] = []);
+        a.push(n);
+        var o, u = s[e] || {},
+            f = u.pkg;
+        o = f ? c[f].url : u.url || e, r(o, t &&
+        function() {
+            t(e)
+        })
+    }
+    var t = document.getElementsByTagName("head")[0],
+        i = {},
+        a = {},
+        o = {},
+        u = {},
+        s = {},
+        c = {},
+        f = {};
+    window.loadingMap = i, define = function(e, r) {
+        a[e] = r;
+        var n = i[e];
+        if (n) {
+            for (var t = 0, o = n.length; o > t; t++) n[t]();
+            delete i[e]
+        }
+    }, require = function(e) {
+        if (e && e.splice) return require.async.apply(this, arguments);
+        e = require.alias(e);
+        var r = o[e];
+        if (r) return r.exports;
+        var n = a[e];
+        if (!n) throw "[ModJS] Cannot find module `" + e + "`";
+        r = o[e] = {
+            exports: {}
+        };
+        var t = "function" == typeof n ? n.apply(r, [require, r.exports, r]) : n;
+        return t && (r.exports = t), r.exports
+    }, require.async = function(r, t, i) {
+        function o(e) {
+            for (var r = 0, t = e.length; t > r; r++) {
+                var c = e[r];
+                if (c in a) {
+                    var f = s[c];
+                    f && "deps" in f && o(f.deps)
+                } else if (!(c in p)) {
+                    p[c] = !0, l++, n(c, u, i);
+                    var f = s[c];
+                    f && "deps" in f && o(f.deps)
+                }
+            }
+        }
+        function u() {
+            if (0 == l--) {
+                for (var n = [], i = 0, a = r.length; a > i; i++) n[i] = require(r[i]);
+                t && t.apply(e, n)
+            }
+        }
+        "string" == typeof r && (r = [r]);
+        for (var c = 0, f = r.length; f > c; c++) r[c] = require.alias(r[c]);
+        var p = {},
+            l = 0;
+        o(r), u()
+    }, require.resourceMap = function(e) {
+        var r, n;
+        n = e.res;
+        for (r in n) n.hasOwnProperty(r) && (s[r] = n[r]);
+        n = e.pkg;
+        for (r in n) n.hasOwnProperty(r) && (c[r] = n[r])
+    }, require.config = function(e) {
+        f = e || {}
+    }, require.loadJs = function(e) {
+        r(e)
+    }, require.loadCss = function(e) {
+        if (e.content) {
+            var r = document.createElement("style");
+            r.type = "text/css", r.styleSheet ? r.styleSheet.cssText = e.content : r.innerHTML = e.content, t.appendChild(r)
+        } else if (e.url) {
+            var n = document.createElement("link");
+            n.href = e.url, n.rel = "stylesheet", n.type = "text/css", t.appendChild(n)
+        }
+    }, require.alias = function(e) {
+        return e
+    }, require.timeout = 5e3
+}(this);
+</script>
+<script>!
+function() {
+    require.config({
+        traceBack: !0,
+        mainDomain: "/apps/",
+        cdnDomain: "http://oss.szzbmy.com/rp2/apps/"
+    })
+}();</script>
+<script>
+    
+require.resourceMap({
+    "res": {
+        "zepto": {
+            "pkg": "p0"
+        },
+        "page/mobile": {
+            "pkg": "p1",
+            "deps": ["common", "loading", "pageManagement", "zepto/touch", "bounceFix", "slideProgress", "animation/animation.async.css"]
+        },
+        "common": {
+            "pkg": "p1",
+            "deps": ["async", "common/requestAnimationFrame"]
+        },
+        "loading": {
+            "pkg": "p1",
+            "deps": ["zepto", "zepto/fx", "zepto/fx.method", "animation"]
+        },
+        "pageManagement": {
+            "pkg": "p1",
+            "deps": ["zepto", "common", "point", "db", "zepto/touch", "pageManagement/loading.tpl", "pageManagement/formSubmitSuccess.tpl", "pageManagement/form.tpl", "pageManagement/video.tpl", "pageManagement/oneCall.tpl", "pageManagement/fingerprint.tpl", "pageManagement/blessing.tpl"]
+        },
+        "zepto/touch": {
+            "pkg": "p1",
+            "deps": ["zepto"]
+        },
+        "bounceFix": {
+            "pkg": "p1"
+        },
+        "slideProgress": {
+            "pkg": "p1",
+            "deps": ["zepto"]
+        },
+        "animation/animation.async.css": {
+            "pkg": "p1"
+        },
+        "async": {
+            "pkg": "p1"
+        },
+        "common/requestAnimationFrame": {
+            "pkg": "p1"
+        },
+        "zepto/fx": {
+            "pkg": "p1"
+        },
+        "zepto/fx.method": {
+            "pkg": "p1"
+        },
+        "animation": {
+            "pkg": "p1"
+        },
+        "point": {
+            "pkg": "p1"
+        },
+        "db": {
+            "pkg": "p1",
+            "deps": ["zepto"]
+        },
+        "pageManagement/loading.tpl": {
+            "pkg": "p1"
+        },
+        "pageManagement/formSubmitSuccess.tpl": {
+            "pkg": "p1"
+        },
+        "pageManagement/form.tpl": {
+            "pkg": "p1"
+        },
+        "pageManagement/video.tpl": {
+            "pkg": "p1"
+        },
+        "pageManagement/oneCall.tpl": {
+            "pkg": "p1"
+        },
+        "pageManagement/fingerprint.tpl": {
+            "pkg": "p1"
+        },
+        "pageManagement/blessing.tpl": {
+            "pkg": "p1"
+        },
+        "page/mobile/mobile.async": {
+            "pkg": "p2",
+            "deps": ["page/mobile/mobile.async.less", "effect", "common", "music", "share", "db", "fingerprintDialog", "shareMask", "blessingList", "reportAbuse"]
+        },
+        "page/mobile/mobile.async.less": {
+            "pkg": "p2"
+        },
+        "effect": {
+            "pkg": "p2",
+            "deps": ["zepto"]
+        },
+        "music": {
+            "pkg": "p2",
+            "deps": ["zepto"]
+        },
+        "share": {
+            "pkg": "p2",
+            "deps": ["zepto", "common", "async", "db"]
+        },
+        "fingerprintDialog": {
+            "pkg": "p2",
+            "deps": ["zepto", "dialog"]
+        },
+        "shareMask": {
+            "pkg": "p2",
+            "deps": ["zepto", "shareMask/shareMask.async.less"]
+        },
+        "blessingList": {
+            "pkg": "p2",
+            "deps": ["zepto", "common", "blessingList/blessingList.tpl", "blessingList/blessingItem.tpl", "db", "pageManagement/loading.tpl", "pageManagement/formSubmitSuccess.tpl"]
+        },
+        "reportAbuse": {
+            "pkg": "p2",
+            "deps": ["zepto", "dialog", "dialog/alert", "reportAbuse/reportAbuse.tpl", "reportAbuse/reportAbuse.async.less", "db"]
+        },
+        "dialog": {
+            "pkg": "p2",
+            "deps": ["zepto", "dialog/dialog.tpl", "dialog/dialog.async.less"]
+        },
+        "shareMask/shareMask.async.less": {
+            "pkg": "p2"
+        },
+        "blessingList/blessingList.tpl": {
+            "pkg": "p2"
+        },
+        "blessingList/blessingItem.tpl": {
+            "pkg": "p2"
+        },
+        "dialog/alert": {
+            "pkg": "p2",
+            "deps": ["zepto", "dialog"]
+        },
+        "reportAbuse/reportAbuse.tpl": {
+            "pkg": "p2"
+        },
+        "reportAbuse/reportAbuse.async.less": {
+            "pkg": "p2"
+        },
+        "dialog/dialog.tpl": {
+            "pkg": "p2"
+        },
+        "dialog/dialog.async.less": {
+            "pkg": "p2"
+        },
+        "page/mobile/mobile2.async": {
+            "pkg": "p3",
+            "deps": ["animation/page-animation.async.css", "page/mobile/mobile2.async.less", "qrCode/zepto.qrCode", "zepto", "common"]
+        },
+        "animation/page-animation.async.css": {
+            "pkg": "p3"
+        },
+        "page/mobile/mobile2.async.less": {
+            "pkg": "p3"
+        },
+        "qrCode/zepto.qrCode": {
+            "pkg": "p3",
+            "deps": ["qrCode"]
+        },
+        "qrCode": {
+            "pkg": "p3"
+        },
+        "effect/effect.async": {
+            "pkg": "p4",
+            "deps": ["effect/rainy", "effect/fireworks", "effect/erase"]
+        },
+        "effect/rainy": {
+            "pkg": "p4",
+            "deps": ["zepto", "effect/rainy/rainyDay"]
+        },
+        "effect/fireworks": {
+            "pkg": "p4"
+        },
+        "effect/erase": {
+            "pkg": "p4",
+            "deps": ["effect/erase/stackblur", "zepto"]
+        },
+        "effect/rainy/rainyDay": {
+            "pkg": "p4"
+        },
+        "effect/erase/stackblur": {
+            "pkg": "p4"
+        }
+    },
+    "pkg": {
+        "p0": {
+            "url": "rp2/apps/static/pkg/zepto_min.js"
+        },
+        "p1": {
+            "url": "rp2/apps/static/pkg/page/mobile.js"
+        },
+        "p2": {
+            "url": "rp2/apps/static/pkg/page/mobile/mobile.async.js"
+        },
+        "p3": {
+            "url": "rp2/apps/static/pkg/page/mobile/mobile2.async.js"
+        },
+        "p4": {
+            "url": "rp2/apps/static/pkg/effect/effect.async_min.js"
+        }
+    }
+});
+
+</script>
+
+<script>
+// var pageData = {
+//     "id": "189513bb-429d-4c3b-92d0-8b763234c67d",
+//     "name": "手机端-买家版",
+//     "userid": "0831df08-9823-4c36-8135-14c47d21c726",
+//     "desc": "",
+//     "imgurl": null,
+//     "state": null,
+//     "statetime": null,
+//     "showviewcount": 1,
+//     "comment": null,
+//     "logo": null,
+//     "level": "0",
+//     "music": null,
+//     "musicname": null,
+//     "device": "iPhone 5",
+//     "width": 320,
+//     "height": 504,
+//     "in": null,
+//     "out": null,
+//     "createtime": "2015-12-25T07:31:09.000Z",
+//     "updatetime": "2015-12-28T02:10:07.000Z",
+//     "shorturl": "VviMbuP",
+//     "reportcount": null,
+//     "loop": 1,
+//     "timeinterval": 0,
+//     "company": null,
+//     "link": null,
+//     "tags": null,
+//     "app_title": "新媒体推广",
+//     "app_praise": 0,
+//     "templateid": null,
+//     "viewcount": 16,
+//     "bucket": null,
+//     "key": null,
+//     "server": null,
+//     "imgbucket": null,
+//     "imgkey": null,
+//     "imgserver": null,
+//     "logobucket": null,
+//     "logokey": null,
+//     "logoserver": null,
+//     "pages": [{
+//         "id": "e22cbfcb-148c-4aca-bad5-985434b4c169",
+//         "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+//         "row": 0,
+//         "col": 0,
+//         "in": null,
+//         "out": null,
+//         "bgcol": "initial",
+//         "bgimage": "http://file2.rabbitpre.com/c5d0437b-26dd-4505-8b1e-1a89437f47aa-0235",
+//         "bgserver": "Q",
+//         "bgleft": 0,
+//         "bgtop": 0,
+//         "cmps": [{
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 108,
+//                 "height": 39,
+//                 "left": 205,
+//                 "top": 7.5,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "transform": "rotate(0deg)",
+//                 "border-color": ""
+//             },
+//             "file": {
+//                 "key": "http://file2.rabbitpre.com/34a711e9-dd07-4a0c-b7e7-54d3d9fc2949-1660",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "bounceInUp",
+//                 "duration": 0.5,
+//                 "delay": 1.1
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 155,
+//                 "height": 46,
+//                 "left": 82,
+//                 "top": 403.5,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file2.rabbitpre.com/9a897105-6062-46e4-bf66-b9f115a68d8f-1914",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "bounceInDown",
+//                 "duration": 0.8,
+//                 "delay": 0.4
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 142,
+//                 "height": 194,
+//                 "left": 87,
+//                 "top": 160.5,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file3.rabbitpre.com/d952efde-a5fe-40fb-8354-1f1f2ca1d33e-8700",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "zoomIn",
+//                 "duration": 1
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "width": 160,
+//                 "font-size": 18,
+//                 "line-height": 13,
+//                 "font-family": "黑体",
+//                 "color": "#F28615",
+//                 "position": "absolute",
+//                 "left": 81,
+//                 "top": 460.5,
+//                 "rotate": 0,
+//                 "overflow": "hidden",
+//                 "height": "auto",
+//                 "transform": "rotate(0deg)",
+//                 "text-align": "center"
+//             },
+//             "text": "<div style=\"font-family: 黑体; color: rgb(255, 255, 255); font-size: 13px;\">热线电话：400-119-0123</div>",
+//             "animation": {
+//                 "name": "bounceInDown",
+//                 "duration": 0.6,
+//                 "delay": 0.7
+//             },
+//             "link": null,
+//             "textType": "text",
+//             "imageLink": "",
+//             "mask": false,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "text"
+//         }, {
+//             "style": {
+//                 "height": 41,
+//                 "width": 108,
+//                 "background-color": "rgba(0, 0, 0, 0)",
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "border-color": "rgba(0, 0, 0, 0)",
+//                 "border-radius": 4,
+//                 "position": "absolute",
+//                 "left": 205,
+//                 "top": 6.5,
+//                 "color": "rgba(0, 0, 0, 0)",
+//                 "rotate": 0,
+//                 "font-size": 16,
+//                 "opacity": 1,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "text": "按钮",
+//             "animation": {
+//                 "name": "fadeInDown",
+//                 "duration": 1
+//             },
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+//             "cmpType": "btn"
+//         }, {
+//             "style": {
+//                 "height": 48,
+//                 "width": 157,
+//                 "background-color": "rgba(0, 0, 0, 0)",
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "border-color": "rgba(0, 0, 0, 0)",
+//                 "border-radius": 4,
+//                 "position": "absolute",
+//                 "left": 82,
+//                 "top": 403.5,
+//                 "color": "rgba(0, 0, 0, 0)",
+//                 "rotate": 0,
+//                 "font-size": 16,
+//                 "opacity": 1,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "text": "按钮",
+//             "animation": {
+//                 "name": "fadeInDown",
+//                 "duration": 1
+//             },
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+//             "cmpType": "btn"
+//         }],
+//         "createtime": "2015-12-28T02:10:07.000Z",
+//         "updatetime": "2015-12-28T02:10:07.000Z"
+//     }, {
+//         "id": "fc54d243-8658-4931-a7de-e1c9942aaafd",
+//         "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+//         "row": 1,
+//         "col": 0,
+//         "in": null,
+//         "out": null,
+//         "bgcol": "initial",
+//         "bgimage": "http://file3.rabbitpre.com/e8ebd786-6724-4285-b8bf-83929ba6c595-9994?imageMogr2/auto-orient",
+//         "bgserver": "Q",
+//         "bgleft": 0,
+//         "bgtop": 0,
+//         "cmps": [{
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 156.07,
+//                 "height": 159,
+//                 "left": 134,
+//                 "top": 133,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file.rabbitpre.com/ed249b62-b0f1-4535-9e5a-8a7da49e8717-9352?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "fadeIn",
+//                 "duration": 0.5,
+//                 "delay": 0
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 229,
+//                 "height": 146.48,
+//                 "left": -7,
+//                 "top": 266.38,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file2.rabbitpre.com/0dc4ae10-bfdf-4612-aea3-2c71d5daaa04-7602?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "bounceInLeft",
+//                 "duration": 0.5,
+//                 "delay": 0
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 160,
+//                 "height": 236.06557377049182,
+//                 "left": 161,
+//                 "top": 314,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file1.rabbitpre.com/1d04fba7-f5e1-45c3-8f3f-cb2628d31384-6465?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "rotateInUpLeft",
+//                 "duration": 0.5,
+//                 "delay": 0.3
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 149,
+//                 "height": 45,
+//                 "left": 86,
+//                 "top": 412.5,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "transform": "rotate(0deg)",
+//                 "border-color": ""
+//             },
+//             "file": {
+//                 "key": "http://cdn2.rabbitpre.com/9a897105-6062-46e4-bf66-b9f115a68d8f-1914",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": [{
+//                 "index": 1
+//             }, {
+//                 "name": "bounceInDown",
+//                 "duration": 0.8,
+//                 "delay": 0.4,
+//                 "count": 1,
+//                 "active": true
+//             }],
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "height": 46,
+//                 "width": 150,
+//                 "background-color": "rgba(0, 0, 0, 0)",
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "border-color": "rgba(0, 0, 0, 0)",
+//                 "border-radius": 4,
+//                 "position": "absolute",
+//                 "left": 86,
+//                 "top": 412.5,
+//                 "color": "rgba(0, 0, 0, 0)",
+//                 "rotate": 0,
+//                 "font-size": 16,
+//                 "opacity": 1,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "text": "按钮",
+//             "animation": {
+//                 "name": "fadeInDown",
+//                 "duration": 1
+//             },
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+//             "cmpType": "btn"
+//         }],
+//         "createtime": "2015-12-25T07:31:09.000Z",
+//         "updatetime": "2015-12-28T02:10:07.000Z"
+//     }, {
+//         "id": "57d008b0-b4fb-436a-8bc6-9ecd6594a09b",
+//         "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+//         "row": 2,
+//         "col": 0,
+//         "in": null,
+//         "out": null,
+//         "bgcol": "initial",
+//         "bgimage": "http://file1.rabbitpre.com/7cb37e01-ca67-4ffd-9957-d6eacdc38194-7326?imageMogr2/auto-orient",
+//         "bgserver": "Q",
+//         "bgleft": 0,
+//         "bgtop": 0,
+//         "cmps": [{
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 180.8,
+//                 "height": 247,
+//                 "left": -8.980000000000018,
+//                 "top": 286,
+//                 "border-radius": 0,
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file3.rabbitpre.com/01b36591-5c97-4aeb-81b1-b30c4ab3bc27-3040?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "rotateInUpLeft",
+//                 "duration": 1,
+//                 "delay": 0
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 323,
+//                 "height": 199.15,
+//                 "left": 0,
+//                 "top": 169.07999999999998,
+//                 "border-radius": 0,
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file2.rabbitpre.com/5a6f2980-3154-4f9c-a9d6-3b0943ad7c55-7048?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "fadeInDown",
+//                 "duration": 0.5,
+//                 "delay": 0.3
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 322,
+//                 "height": 154.56,
+//                 "left": -1,
+//                 "top": 205,
+//                 "border-radius": 0,
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file3.rabbitpre.com/632d62a1-29ee-4542-853c-2e2ecb04958f-1393?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "bounceIn",
+//                 "duration": 0.6,
+//                 "delay": 0.7
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "height": 45,
+//                 "width": 147,
+//                 "background-color": "rgba(0, 0, 0, 0)",
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "border-color": "rgba(0, 0, 0, 0)",
+//                 "border-radius": 4,
+//                 "position": "absolute",
+//                 "left": 91,
+//                 "top": 417.5,
+//                 "color": "rgba(0, 0, 0, 0)",
+//                 "rotate": 0,
+//                 "font-size": 16,
+//                 "opacity": 1,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "text": "按钮",
+//             "animation": {
+//                 "name": "fadeInDown",
+//                 "duration": 1
+//             },
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "link": null,
+//             "cmpType": "btn"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 149,
+//                 "height": 45,
+//                 "left": 94,
+//                 "top": 411.5,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "transform": "rotate(0deg)",
+//                 "border-color": ""
+//             },
+//             "file": {
+//                 "key": "http://cdn2.rabbitpre.com/9a897105-6062-46e4-bf66-b9f115a68d8f-1914",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": [{
+//                 "index": 1
+//             }, {
+//                 "name": "bounceInDown",
+//                 "duration": 0.8,
+//                 "delay": 0.4,
+//                 "count": 1,
+//                 "active": true
+//             }],
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "height": 46,
+//                 "width": 150,
+//                 "background-color": "rgba(0, 0, 0, 0)",
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "border-color": "rgba(0, 0, 0, 0)",
+//                 "border-radius": 4,
+//                 "position": "absolute",
+//                 "left": 93,
+//                 "top": 410.5,
+//                 "color": "rgba(0, 0, 0, 0)",
+//                 "rotate": 0,
+//                 "font-size": 16,
+//                 "opacity": 1,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "text": "按钮",
+//             "animation": {
+//                 "name": "fadeInDown",
+//                 "duration": 1
+//             },
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+//             "cmpType": "btn"
+//         }],
+//         "createtime": "2015-12-25T07:31:09.000Z",
+//         "updatetime": "2015-12-28T02:10:07.000Z"
+//     }, {
+//         "id": "f0542417-0b06-4ce0-87be-79bbe2bc6d6e",
+//         "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+//         "row": 3,
+//         "col": 0,
+//         "in": null,
+//         "out": null,
+//         "bgcol": "initial",
+//         "bgimage": "http://file3.rabbitpre.com/8071d0e7-c56c-4c69-8835-7c14895967c7-6965?imageMogr2/auto-orient",
+//         "bgserver": "Q",
+//         "bgleft": 0,
+//         "bgtop": 0,
+//         "cmps": [{
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 228,
+//                 "height": 171.24,
+//                 "left": 47,
+//                 "top": 194.76,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://file2.rabbitpre.com/22eb5e78-8019-4322-958d-3b09bf0a4c57-3579?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "fadeIn",
+//                 "duration": 1
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 215,
+//                 "height": 170.77,
+//                 "left": 53,
+//                 "top": 171.98000000000002,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "border-color": "transparent",
+//                 "transform": "rotate(0deg)"
+//             },
+//             "file": {
+//                 "key": "http://wscdn.rabbitpre.com/eb93e1b9-605e-483c-9cc0-5b69383548f9-9513?imageMogr2/auto-orient",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": {
+//                 "name": "bounceIn",
+//                 "duration": 0.6,
+//                 "delay": 0.5
+//             },
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "position": "absolute",
+//                 "width": 149,
+//                 "height": 45,
+//                 "left": 96,
+//                 "top": 411.5,
+//                 "border-radius": 0,
+//                 "border-width": 0,
+//                 "border-style": "solid",
+//                 "rotate": 0,
+//                 "transform": "rotate(0deg)",
+//                 "border-color": ""
+//             },
+//             "file": {
+//                 "key": "http://cdn2.rabbitpre.com/9a897105-6062-46e4-bf66-b9f115a68d8f-1914",
+//                 "filtereffect": "original",
+//                 "server": "Q"
+//             },
+//             "animation": [{
+//                 "index": 1
+//             }, {
+//                 "name": "bounceInDown",
+//                 "duration": 0.8,
+//                 "delay": 0.4,
+//                 "count": 1,
+//                 "active": true
+//             }],
+//             "effect": {},
+//             "link": null,
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "cmpType": "image"
+//         }, {
+//             "style": {
+//                 "height": 46,
+//                 "width": 150,
+//                 "background-color": "rgba(0, 0, 0, 0)",
+//                 "border-width": 1,
+//                 "border-style": "solid",
+//                 "border-color": "rgba(0, 0, 0, 0)",
+//                 "border-radius": 4,
+//                 "position": "absolute",
+//                 "left": 95,
+//                 "top": 410.5,
+//                 "color": "rgba(0, 0, 0, 0)",
+//                 "rotate": 0,
+//                 "font-size": 16,
+//                 "opacity": 1,
+//                 "transform": "rotate(0deg)"
+//             },
+//             "text": "按钮",
+//             "animation": {
+//                 "name": "fadeInDown",
+//                 "duration": 1
+//             },
+//             "remark": {
+//                 "key": "",
+//                 "name": ""
+//             },
+//             "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+//             "cmpType": "btn"
+//         }],
+//         "createtime": "2015-12-25T07:31:09.000Z",
+//         "updatetime": "2015-12-28T02:10:07.000Z"
+//     }]
+// }
+var pageData = {
+    "id": "189513bb-429d-4c3b-92d0-8b763234c67d",
+    "name": "手机端-买家版",
+    "userid": "0831df08-9823-4c36-8135-14c47d21c726",
+    "desc": "",
+    "imgurl": null,
+    "state": null,
+    "statetime": null,
+    "showviewcount": 1,
+    "comment": null,
+    "logo": null,
+    "level": "0",
+    "music": null,
+    "musicname": null,
+    "device": "iPhone 5",
+    "width": 320,
+    "height": 504,
+    "in": null,
+    "out": null,
+    "createtime": "2015-12-25T07:31:09.000Z",
+    "updatetime": "2015-12-25T08:58:13.000Z",
+    "shorturl": "VviMbuP",
+    "reportcount": null,
+    "loop": 1,
+    "timeinterval": 0,
+    "company": null,
+    "link": null,
+    "tags": null,
+    "app_title": "新媒体推广",
+    "app_praise": 0,
+    "templateid": null,
+    "viewcount": 14,
+    "bucket": null,
+    "key": null,
+    "server": null,
+    "imgbucket": null,
+    "imgkey": null,
+    "imgserver": null,
+    "logobucket": null,
+    "logokey": null,
+    "logoserver": null,
+    "pages": [
+    // {
+    //     "id": "3528f1c8-361a-40d2-883f-93d46095d495",
+    //     "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+    //     "row": 1,
+    //     "col": 0,
+    //     "in": null,
+    //     "out": null,
+    //     "bgcol": "initial",
+    //     "bgimage": "imgs/bg.png",
+    //     "bgserver": "Q",
+    //     "bgleft": 0,
+    //     "bgtop": 0,
+    //     "cmps": [{
+    //         "style": {
+    //             "position": "absolute",
+    //             "width": 114,
+    //             "height": 41,
+    //             "left": 200,
+    //             "top": 8.5,
+    //             "border-radius": 0,
+    //             "border-width": 0,
+    //             "border-style": "solid",
+    //             "rotate": 0,
+    //             "transform": "rotate(0deg)",
+    //             "border-color": ""
+    //         },
+    //         "file": {
+    //             "key": 'imgs/cgs.png',
+    //             "filtereffect": "original",
+    //             "server": "Q",
+    //             "a": null,
+    //             "orikey": "imgs/cgs.png"
+    //         },
+    //         "animation": {
+    //             "name": "bounceInUp",
+    //             "duration": 0.5,
+    //             "delay": 1.1
+    //         },
+    //         "effect": {},
+    //         "link": null,
+    //         "remark": {
+    //             "key": "",
+    //             "name": ""
+    //         },
+    //         "cmpType": "image"
+    //     }, {
+    //         "style": {
+    //             "position": "absolute",
+    //             "width": 155,
+    //             "height": 46,
+    //             "left": 82,
+    //             "top": 403.5,
+    //             "border-radius": 0,
+    //             "border-width": 0,
+    //             "border-style": "solid",
+    //             "rotate": 0,
+    //             "transform": "rotate(0deg)",
+    //             "border-color": ""
+    //         },
+    //         "file": {
+    //             "key": "imgs/btn-download.png",
+    //             "filtereffect": "original",
+    //             "server": "Q"
+    //         },
+    //         "animation": {
+    //             "name": "bounceInDown",
+    //             "duration": 0.8,
+    //             "delay": 0.4
+    //         },
+    //         "effect": {},
+    //         "link": null,
+    //         "remark": {
+    //             "key": "",
+    //             "name": ""
+    //         },
+    //         "cmpType": "image"
+    //     }, {
+    //         "style": {
+    //             "position": "absolute",
+    //             "width": 175,
+    //             "height": 181,
+    //             "left": 72,
+    //             "top": 160.5,
+    //             "border-radius": 0,
+    //             "border-width": 0,
+    //             "border-style": "solid",
+    //             "rotate": 0,
+    //             "transform": "rotate(0deg)",
+    //             "border-color": ""
+    //         },
+    //         "file": {
+    //             "key": "imgs/2-1.png",
+    //             "filtereffect": "original",
+    //             "server": "Q",
+    //             "a": null,
+    //             "orikey": "imgs/2-1.png"
+    //         },
+    //         "animation": {
+    //             "name": "zoomIn",
+    //             "duration": 1
+    //         },
+    //         "effect": {},
+    //         "link": null,
+    //         "remark": {
+    //             "key": "",
+    //             "name": ""
+    //         },
+    //         "cmpType": "image"
+    //     }, {
+    //         "style": {
+    //             "width": 160,
+    //             "font-size": 18,
+    //             "line-height": 13,
+    //             "font-family": "黑体",
+    //             "color": "#F28615",
+    //             "position": "absolute",
+    //             "left": 79,
+    //             "top": 460.5,
+    //             "rotate": 0,
+    //             "overflow": "hidden",
+    //             "height": "auto",
+    //             "transform": "rotate(0deg)",
+    //             "text-align": "center"
+    //         },
+    //         "text": "<div style=\"font-family: 黑体; color: rgb(255, 255, 255); font-size: 13px;\">热线电话：400-119-0123</div>",
+    //         "animation": {
+    //             "name": "bounceInDown",
+    //             "duration": 0.6,
+    //             "delay": 0.7
+    //         },
+    //         "link": null,
+    //         "textType": "text",
+    //         "imageLink": "",
+    //         "mask": false,
+    //         "remark": {
+    //             "key": "",
+    //             "name": ""
+    //         },
+    //         "cmpType": "text"
+    //     }, {
+    //         "style": {
+    //             "height": 45,
+    //             "width": 151,
+    //             "background-color": "rgba(0, 0, 0, 0)",
+    //             "border-width": 1,
+    //             "border-style": "solid",
+    //             "border-color": "rgba(0, 0, 0, 0)",
+    //             "border-radius": 4,
+    //             "position": "absolute",
+    //             "left": 87,
+    //             "top": 404.5,
+    //             "color": "rgba(0, 0, 0, 0)",
+    //             "rotate": 0,
+    //             "font-size": 16,
+    //             "opacity": 1,
+    //             "transform": "rotate(0deg)"
+    //         },
+    //         "text": "按钮",
+    //         "animation": {
+    //             "name": "fadeInDown",
+    //             "duration": 1
+    //         },
+    //         "remark": {
+    //             "key": "",
+    //             "name": ""
+    //         },
+    //         "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+    //         "cmpType": "btn"
+    //     }, {
+    //         "style": {
+    //             "height": 41,
+    //             "width": 114,
+    //             "background-color": "rgba(0, 0, 0, 0)",
+    //             "border-width": 1,
+    //             "border-style": "solid",
+    //             "border-color": "rgba(0, 0, 0, 0)",
+    //             "border-radius": 4,
+    //             "position": "absolute",
+    //             "left": 200,
+    //             "top": 8.5,
+    //             "color": "rgba(0, 0, 0, 0)",
+    //             "rotate": 0,
+    //             "font-size": 16,
+    //             "opacity": 1,
+    //             "transform": "rotate(0deg)"
+    //         },
+    //         "text": "按钮",
+    //         "animation": {
+    //             "name": "fadeInDown",
+    //             "duration": 1
+    //         },
+    //         "remark": {
+    //             "key": "",
+    //             "name": ""
+    //         },
+    //         "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+    //         "cmpType": "btn"
+    //     }],
+    //     "createtime": "2015-12-25T07:11:08.000Z",
+    //     "updatetime": "2015-12-25T09:02:07.000Z"
+    // }, 
+    {
+        "id": "e22cbfcb-148c-4aca-bad5-985434b4c169",
+        "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+        "row": 0,
+        "col": 0,
+        "in": null,
+        "out": null,
+        "bgcol": "initial",
+        "bgimage": "imgs/bg.png",
+        "bgserver": "Q",
+        "bgleft": 0,
+        "bgtop": 0,
+        "cmps": [{
+            "style": {
+                "position": "absolute",
+                "width": 108,
+                "height": 39,
+                "left": 205,
+                "top": 7.5,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "transform": "rotate(0deg)",
+                "border-color": ""
+            },
+            "file": {
+                "key": "imgs/gys.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "bounceInUp",
+                "duration": 0.5,
+                "delay": 1.1
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 155,
+                "height": 46,
+                "left": 82,
+                "top": 403.5,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/btn-download.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "bounceInDown",
+                "duration": 0.8,
+                "delay": 0.4
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 142,
+                "height": 194,
+                "left": 87,
+                "top": 160.5,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/1-2.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "zoomIn",
+                "duration": 1
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "width": 160,
+                "font-size": 18,
+                "line-height": 13,
+                "font-family": "黑体",
+                "color": "#F28615",
+                "position": "absolute",
+                "left": 81,
+                "top": 460.5,
+                "rotate": 0,
+                "overflow": "hidden",
+                "height": "auto",
+                "transform": "rotate(0deg)",
+                "text-align": "center"
+            },
+            "text": "<div style=\"font-family: 黑体; color: rgb(255, 255, 255); font-size: 13px;\">热线电话：400-119-0123</div>",
+            "animation": {
+                "name": "bounceInDown",
+                "duration": 0.6,
+                "delay": 0.7
+            },
+            "link": null,
+            "textType": "text",
+            "imageLink": "",
+            "mask": false,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "text"
+        }, {
+            "style": {
+                "height": 41,
+                "width": 108,
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-width": 1,
+                "border-style": "solid",
+                "border-color": "rgba(0, 0, 0, 0)",
+                "border-radius": 4,
+                "position": "absolute",
+                "left": 205,
+                "top": 6.5,
+                "color": "rgba(0, 0, 0, 0)",
+                "rotate": 0,
+                "font-size": 16,
+                "opacity": 1,
+                "transform": "rotate(0deg)"
+            },
+            "text": "按钮",
+            "animation": {
+                "name": "fadeInDown",
+                "duration": 1
+            },
+            "id": 'id',
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "link": "http://youbu.tnc.com.cn/seller.html",
+            "cmpType": "btn"
+        }, {
+            "style": {
+                "height": 48,
+                "width": 157,
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-width": 1,
+                "border-style": "solid",
+                "border-color": "rgba(0, 0, 0, 0)",
+                "border-radius": 4,
+                "position": "absolute",
+                "left": 82,
+                "top": 403.5,
+                "color": "rgba(0, 0, 0, 0)",
+                "rotate": 0,
+                "font-size": 16,
+                "opacity": 1,
+                "transform": "rotate(0deg)"
+            },
+            "text": "按钮",
+            "animation": {
+                "name": "fadeInDown",
+                "duration": 1
+            },
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+            "cmpType": "btn"
+        }],
+        "createtime": "2015-12-28T02:10:07.000Z",
+        "updatetime": "2015-12-28T02:10:07.000Z"
+    }, {
+        "id": "fc54d243-8658-4931-a7de-e1c9942aaafd",
+        "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+        "row": 1,
+        "col": 0,
+        "in": null,
+        "out": null,
+        "bgcol": "initial",
+        "bgimage": "imgs/2-2.png",
+        "bgserver": "Q",
+        "bgleft": 0,
+        "bgtop": 0,
+        "cmps": [{
+            "style": {
+                "position": "absolute",
+                "width": 156.07,
+                "height": 159,
+                "left": 134,
+                "top": 133,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-3.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "fadeIn",
+                "duration": 0.5,
+                "delay": 0
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 229,
+                "height": 146.48,
+                "left": -7,
+                "top": 266.38,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-4.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "bounceInLeft",
+                "duration": 0.5,
+                "delay": 0
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 160,
+                "height": 236.06557377049182,
+                "left": 161,
+                "top": 314,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-5.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "rotateInUpLeft",
+                "duration": 0.5,
+                "delay": 0.3
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 149,
+                "height": 45,
+                "left": 86,
+                "top": 412.5,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "transform": "rotate(0deg)",
+                "border-color": ""
+            },
+            "file": {
+                "key": "imgs/btn-download.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": [{
+                "index": 1
+            }, {
+                "name": "bounceInDown",
+                "duration": 0.8,
+                "delay": 0.4,
+                "count": 1,
+                "active": true
+            }],
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "height": 46,
+                "width": 150,
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-width": 1,
+                "border-style": "solid",
+                "border-color": "rgba(0, 0, 0, 0)",
+                "border-radius": 4,
+                "position": "absolute",
+                "left": 86,
+                "top": 412.5,
+                "color": "rgba(0, 0, 0, 0)",
+                "rotate": 0,
+                "font-size": 16,
+                "opacity": 1,
+                "transform": "rotate(0deg)"
+            },
+            "text": "按钮",
+            "animation": {
+                "name": "fadeInDown",
+                "duration": 1
+            },
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+            "cmpType": "btn"
+        }],
+        "createtime": "2015-12-25T07:31:09.000Z",
+        "updatetime": "2015-12-25T08:58:05.000Z"
+    }, {
+        "id": "57d008b0-b4fb-436a-8bc6-9ecd6594a09b",
+        "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+        "row": 2,
+        "col": 0,
+        "in": null,
+        "out": null,
+        "bgcol": "initial",
+        "bgimage": "imgs/2-6.png",
+        "bgserver": "Q",
+        "bgleft": 0,
+        "bgtop": 0,
+        "cmps": [{
+            "style": {
+                "position": "absolute",
+                "width": 180.8,
+                "height": 247,
+                "left": -8.980000000000018,
+                "top": 286,
+                "border-radius": 0,
+                "border-width": 1,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-7.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "rotateInUpLeft",
+                "duration": 1,
+                "delay": 0
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 323,
+                "height": 199.15,
+                "left": 0,
+                "top": 169.07999999999998,
+                "border-radius": 0,
+                "border-width": 1,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-8.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "fadeInDown",
+                "duration": 0.5,
+                "delay": 0.3
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 322,
+                "height": 154.56,
+                "left": -1,
+                "top": 205,
+                "border-radius": 0,
+                "border-width": 1,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-11.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "bounceIn",
+                "duration": 0.6,
+                "delay": 0.7
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "height": 45,
+                "width": 147,
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-width": 1,
+                "border-style": "solid",
+                "border-color": "rgba(0, 0, 0, 0)",
+                "border-radius": 4,
+                "position": "absolute",
+                "left": 91,
+                "top": 417.5,
+                "color": "rgba(0, 0, 0, 0)",
+                "rotate": 0,
+                "font-size": 16,
+                "opacity": 1,
+                "transform": "rotate(0deg)"
+            },
+            "text": "按钮",
+            "animation": {
+                "name": "fadeInDown",
+                "duration": 1
+            },
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "link": null,
+            "cmpType": "btn"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 149,
+                "height": 45,
+                "left": 94,
+                "top": 411.5,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "transform": "rotate(0deg)",
+                "border-color": ""
+            },
+            "file": {
+                "key": "imgs/btn-download.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": [{
+                "index": 1
+            }, {
+                "name": "bounceInDown",
+                "duration": 0.8,
+                "delay": 0.4,
+                "count": 1,
+                "active": true
+            }],
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "height": 46,
+                "width": 150,
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-width": 1,
+                "border-style": "solid",
+                "border-color": "rgba(0, 0, 0, 0)",
+                "border-radius": 4,
+                "position": "absolute",
+                "left": 93,
+                "top": 410.5,
+                "color": "rgba(0, 0, 0, 0)",
+                "rotate": 0,
+                "font-size": 16,
+                "opacity": 1,
+                "transform": "rotate(0deg)"
+            },
+            "text": "按钮",
+            "animation": {
+                "name": "fadeInDown",
+                "duration": 1
+            },
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+            "cmpType": "btn"
+        }],
+        "createtime": "2015-12-25T07:31:09.000Z",
+        "updatetime": "2015-12-25T08:58:05.000Z"
+    }, {
+        "id": "f0542417-0b06-4ce0-87be-79bbe2bc6d6e",
+        "appid": "189513bb-429d-4c3b-92d0-8b763234c67d",
+        "row": 3,
+        "col": 0,
+        "in": null,
+        "out": null,
+        "bgcol": "initial",
+        "bgimage": "imgs/2-9.png",
+        "bgserver": "Q",
+        "bgleft": 0,
+        "bgtop": 0,
+        "cmps": [{
+            "style": {
+                "position": "absolute",
+                "width": 228,
+                "height": 171.24,
+                "left": 47,
+                "top": 194.76,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-10.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "fadeIn",
+                "duration": 1
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 215,
+                "height": 170.77,
+                "left": 53,
+                "top": 171.98000000000002,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "border-color": "transparent",
+                "transform": "rotate(0deg)"
+            },
+            "file": {
+                "key": "imgs/2-12.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": {
+                "name": "bounceIn",
+                "duration": 0.6,
+                "delay": 0.5
+            },
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "position": "absolute",
+                "width": 149,
+                "height": 45,
+                "left": 96,
+                "top": 411.5,
+                "border-radius": 0,
+                "border-width": 0,
+                "border-style": "solid",
+                "rotate": 0,
+                "transform": "rotate(0deg)",
+                "border-color": ""
+            },
+            "file": {
+                "key": "imgs/btn-download.png",
+                "filtereffect": "original",
+                "server": "Q"
+            },
+            "animation": [{
+                "index": 1
+            }, {
+                "name": "bounceInDown",
+                "duration": 0.8,
+                "delay": 0.4,
+                "count": 1,
+                "active": true
+            }],
+            "effect": {},
+            "link": null,
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "cmpType": "image"
+        }, {
+            "style": {
+                "height": 46,
+                "width": 150,
+                "background-color": "rgba(0, 0, 0, 0)",
+                "border-width": 1,
+                "border-style": "solid",
+                "border-color": "rgba(0, 0, 0, 0)",
+                "border-radius": 4,
+                "position": "absolute",
+                "left": 95,
+                "top": 410.5,
+                "color": "rgba(0, 0, 0, 0)",
+                "rotate": 0,
+                "font-size": 16,
+                "opacity": 1,
+                "transform": "rotate(0deg)"
+            },
+            "text": "按钮",
+            "animation": {
+                "name": "fadeInDown",
+                "duration": 1
+            },
+            "remark": {
+                "key": "",
+                "name": ""
+            },
+            "link": "http://a.app.qq.com/o/simple.jsp?pkgname=com.qfc.cloth.hi",
+            "cmpType": "btn"
+        }],
+        "createtime": "2015-12-25T07:31:09.000Z",
+        "updatetime": "2015-12-25T08:58:13.000Z"
+    }]
+}
+</script>
+<script>
+    (function() {
+    var e;
+    window.defaultWidth = 320 || 320, window.defaultHeight = 540 || 480, window.remSlice = 16, e = function() {
+        var e, t, n, i, o, d;
+        return t = 320, e = 504, i = document.body.clientWidth, n = document.body.clientHeight, i / n > t / e ? (o = n, d = t * o / e) : (d = i, o = e * d / t), {
+            width: d,
+            height: o
+        }
+    }, window.calPageSize = e, window.updateWinFontSize = function() {
+        var t;
+        return t = e(), window.isPC && (document.getElementById("wrapper").style.width = t.width + "px"), window.rem = t.width / remSlice, document.documentElement.style.fontSize = rem + "px"
+    }, updateWinFontSize(), window.onload = function() {
+        return window.DEBUG = 0, setTimeout(function() {
+            return document.documentElement.className += " page-ready", require.async(["zepto", "page/mobile"], function(e, t) {
+                return t.init(), require.async(["page/mobile/mobile.async", "page/mobile/mobile2.async", "effect/effect.async"])
+            })
+        }, 0)
+    }
+}).call(this);
+</script>
+
+
+<script type="text/javascript" src="http://img.qfc.cn/static/js/web/common/baidu-google.js"></script>
+<script type="text/javascript" src="rp2/zepto.min.js"></script>
+<script type="text/javascript">
+    var timer = setInterval(function() {
+        if ( ! $(".loading").length) {
+            $('.cmp.btn').filter(function(index) {
+                return index != 0;
+            }).click(function() {
+                ga('send', 'event', '下载有布', '点击', '有布买家版', {
+                  nonInteraction: true
+                });
+            });
+            clearInterval(timer);
+        }
+    }, 100);
+</script>
+
+</body>
+</html>

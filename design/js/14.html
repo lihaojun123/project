@@ -7,18 +7,13 @@
     <title>组合模式</title>
 </head>
 <body>
-      
-
      <script>
-          //每个成员要有祖先
-
+          
           var News=function(){
               //子组件容器
               this.children=[];
               //当前组件元素
-
               this.element=null;
-
           }
           News.prototype={
               init:function(){
@@ -31,7 +26,105 @@
                   throw new Error("请重写你的方法");
               }
           }
-          
+
+          var Container=function(id,parent){
+              News.call(this);
+              this.id=id;
+              this.parent=parent;
+              this.init();
+            }
+
+            /**
+            ** @洁净的继承者-----原型式继承
+            **
+            */
+            function inheritObject(o){
+               //声明一个过渡函数对象
+               function F(){}
+               //过渡对象的原型继承父对象
+               F.prototype=o;
+               //返回过渡对象的一个实例，该实例的原型继承了父对象
+               return new F();
+             }
+
+            /**
+            ** 寄生式继承 继承原型
+            ** 传递参数 subClass 子类
+            ** 传递参数 superClass 父类
+            **/
+             function inheritPrototype(subClass,superClass){
+                 //复制一份父类的原型副本保存在变量中
+                 var p=inheritObject(superClass.property);
+                 //修正因为重写子类原型导致子类的constructor属性被修改
+                 p.constructor=subClass;
+                 //设置子类的原型
+                 subClass.property=p;
+             }
+
+          inheritPrototype(Container,News);
+
+          //构建方法
+          Container.prototype.init=function(){
+              this.element=document.createElement('ul');
+              this.element.id=this.id;
+              this.element.className='new-containter';
+          }
+          //添加子元素方法
+          Container.prototype.add=function(child){
+              this.children.push(child);
+              //插入当前组件元素树中
+              this.element.appendChild(child.getElement());
+              return this;
+          }
+          //获取当前元素方法
+          Container.prototype.getElement=function(){
+              return this.element;
+          }
+          Container.prototype.show=function(){
+              this.parent.appendChild(this.element);
+          }
+         
+          var Item=function(className){
+              News.call(this);
+              this.className=className || "";
+              this.init();
+          }
+
+          inheritPrototype(Item,News);
+          Item.prototype.init=function(){
+              this.element=document.createElement('li');
+              this.element.className=this.className;
+          }
+
+          Item.prototype.add=function(child){
+              //在子元素容器中插入子元素
+              this.children.push(child);
+              //插入当前组件元素树中
+              this.element.appendChild(child.getElement());
+              return this;
+          }
+          Item.prototype.getElement=function(){
+              return this.element;
+          }
+
+          var newsGroup=function(className){
+              News.call(this);
+              this.className=clasName;
+              this.init();
+          }
+           inheritPrototype(newsGroup,News);
+           newsGroup.prototype.init=function(){
+               this.element=document.createElement("div");
+               this.element.className=this.clasName;
+           }
+           newsGroup.prototype.add=function(child){
+               this.children.push(child);
+               this.element.appendChild(child.getElement());  
+           }
+           newsGroup.prototype.getElement=function(){
+               return  this.element;
+           }
+           
      </script>
 </body>
 </html>
