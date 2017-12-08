@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../../plugs/vue/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        {{msg}}
+        <com-a></com-a>
+        <com-b></com-b>
+        <com-c></com-c>
+
+    </div>
+    <template id="aaa">
+        <div>
+            <h3>我是a组件</h3>
+            <p>{{a}}</p>
+            <button @click="send">把a数据给c</button>
+        </div>
+    </template>
+    <template id="bbb">
+        <div>
+            <h3>我是b组件</h3>
+            <button>把b数据给c</button>
+            <p>{{b}}</p>
+        </div>
+    </template>
+    <template id="ccc">
+        <div>
+            <h3>我是c组件</h3>
+            <p>cccc</p>
+        </div>
+    </template>
+    <script>
+        var Event=new Vue();
+        var AAA = {
+            data() {
+                return{
+                    a:"我是a数据"
+                }
+                
+            },
+            methods:{
+                send(){
+                    Event.$emit('aaa',this.a)
+                }
+            },
+            template: "#aaa",
+        }
+        var BBB = {
+            data(){
+                return{
+                    b:"我是b数据"
+                }
+                
+            },
+            template: "#bbb",
+        }
+        var CCC = {
+            data: {
+                c:'我是c数据'
+            },
+            template: "#ccc",
+            mounted:function(){
+                //alert('')
+                Event.$on('aaa',function(a){
+                    alert(a);
+                })
+            }
+        }
+        var vuedemo = new Vue({
+            el: "#demo",
+            data: {
+                msg: '123'
+            },
+            components: {
+                'com-a': AAA,
+                'com-b':BBB,
+                'com-c':CCC
+            }
+        })
+    </script>
+</body>
+
+</html>

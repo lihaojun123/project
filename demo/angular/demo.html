@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="myapp">
+
+<head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="demo.js"></script>
+    <style>
+            input.ng-invalid {
+                background-color: lightblue;
+            }
+            </style>
+</head>
+<body>
+    <form ng-app="" name="myForm" ng-init="myText = 'test@runoob.com'">
+            Email:
+            <input type="email" name="myAddress" ng-model="myText" required></p>
+            <h1>状态</h1>
+            {{myForm.myAddress.$valid}}
+            {{myForm.myAddress.$dirty}}
+            {{myForm.myAddress.$touched}}
+    </form>
+</body>
+
+</html>

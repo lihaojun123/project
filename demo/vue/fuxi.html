@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件的编写</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="../../plugs/vue/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="demo" id="demo">
+        <!--头部信息-->
+        <input type="text" v-model="parMsg"/>
+        <p>{{parMsg}}</p>
+        <top :bb='parMsg'></top>
+        <!--左内容-->
+        
+        <left :left-json="msgJson"></left>
+        <!--右内容-->
+        <right></right>
+        <div class="clear"></div>
+        <!--底部内容-->
+        <bottom ></bottom>
+        
+    </div>
+
+
+
+    <template id="component1">
+        <div class="comp">
+            <h2>{{msg}}</h2>
+            <p>{{bb}}</p>
+            <button @click="send"></button>
+        </div>
+    </template>
+    
+
+    <template id="left">
+        <div class="left">
+            <p>{{msg}}</p>
+            <p>{{leftJson}}</p>
+        </div>
+    </template>
+
+
+    <template id="right">
+            <div class="right">
+                <p>{{msg}}</p>
+            </div>
+    </template>
+    <template id="bottom">
+            <div class="bottom">
+                <p>{{msg}}</p>
+            </div>
+    </template>
+
+
+    <script>
+        var Event=new Vue();
+        //定义一个组件
+        var comp = {
+            template: '#component1',
+            props:['bb'],
+            data:function(){
+                return {
+                    msg:'我是组件1的内容'
+                }
+            },
+            methods:{
+                  send:function(e){
+                    Event.$emit('son',this.msg);
+                  }
+            },
+            mounted:function(){
+                
+            }
+        }
+        var left = {
+            template: '#left',
+            props:['leftJson'],
+            data:function(){
+                return {
+                    msg:'我是左侧内容'
+                }
+            }
+        }
+        var right = {
+            template: '#right',
+            data:function(){
+                return {
+                    msg:'我是右侧内容'
+                }
+            }
+        }
+        var bottom = {
+            template: '#bottom',
+            data:function(){
+                return {
+                    msg:'我是底部内容'
+                }
+            }
+        }
+        var vueDemo = new Vue({
+            el: "#demo",
+            data: {
+                parMsg:"父组件的数据",
+                msgJson:1
+            },
+            methods: {
+
+            },
+            components: {
+                'top': comp,
+                'left': left,
+                'right':right,
+                'bottom':bottom
+            },
+            mounted:function(){
+                Event.$on('son',function(a){
+                     alert(a);
+                })
+            }
+        });
+    </script>
+</body>
+
+</html>

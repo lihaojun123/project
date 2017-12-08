@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../../plugs/vue/vue2.0.min.js"></script>
+    <script type="text/javascript" src="../../plugs/vue/router2.0.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <div>
+            <router-link to="/home">主页</router-link>
+            <router-link to="/new">新闻</router-link>
+        </div>
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+    <template id="home">
+        <h1>我是主页</h1>
+    </template>
+    <template id="new">
+        <div>
+            <h1>我是新闻</h1>
+            <ul>
+                <li>
+                    <router-link to="/new/list/2">列表</router-link>
+                </li>
+                <li>
+                    <router-link to="/new/detail/3">详情</router-link>
+                </li>
+            </ul>
+            <div>
+                <router-view></router-view>
+            </div>
+        </div>
+    </template>
+    <script>
+        var Home = {
+            template: '#home'
+        };
+        var New = {
+            template: '#new'
+        };
+        var List = {
+            template: '<h2>我是列表页面{{$route.params}}</h2>'
+        };
+        var Detail = {
+            template: '<h2>我是详情页面{{$route.params}}</h2>'
+        };
+        //配置路由
+        const routess = [
+            { path: '/home', component: Home },
+            { path: '/new', component: New, children: [{ path: 'list/:id', component: List }, { path: 'detail/:id', component: Detail }] },
+            { path: '*', redirect: '/home' }
+        ];
+        // 生成路由实例
+        var router = new VueRouter({
+            routes: routess
+        })
+        new Vue({
+            el: "#demo",
+            router: router
+        })
+    </script>
+</body>
+
+</html>
